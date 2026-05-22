@@ -8,12 +8,12 @@ import SectionHeading from "./SectionHeading";
 const experiences = [
   {
     role: "Software Engineering Intern",
-    company: "Tech Company",
-    location: "Ethiopia (Hybrid)",
-    period: "2024 – Present",
+    company: "Sidama Science and Technology University",
+    location: "Sidama, Ethiopia",
+    period: "Mar 2025 – Jul 2025 (4 months)",
     type: "Internship",
     description:
-      "Contributed to the development of web applications as part of a cross-functional engineering team. Gained hands-on experience with modern development workflows and agile methodologies.",
+      "Contributing to the development of web applications at Sidama Science and Technology University as part of a software engineering internship. Working with a team on real-world projects using modern development practices.",
     achievements: [
       "Built and maintained responsive UI components using React and Tailwind CSS",
       "Developed RESTful API endpoints with Node.js and Express",

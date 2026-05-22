@@ -18,7 +18,7 @@ const highlights = [
   {
     icon: Briefcase,
     title: "Experience",
-    desc: "Software Engineering Intern — real-world web development",
+    desc: "Software Engineering Intern at Sidama Science and Technology University",
     color: "text-purple-400",
     bg: "bg-purple-500/10",
     border: "border-purple-500/20",
