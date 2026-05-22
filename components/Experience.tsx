@@ -31,7 +31,7 @@ const experiences = [
 
 const education = [
   {
-    degree: "Bachelor of Science in Software Engineering",
+    degree: "BSc in Software Engineering",
     school: "Dire Dawa University",
     location: "Dire Dawa, Ethiopia",
     period: "2022 – Present",
