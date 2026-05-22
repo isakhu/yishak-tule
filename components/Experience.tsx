@@ -8,8 +8,8 @@ import SectionHeading from "./SectionHeading";
 const experiences = [
   {
     role: "Software Engineering Intern",
-    company: "Sidama Science and Technology University",
-    location: "Sidama, Ethiopia",
+    company: "Sidama Science and Technology Agency",
+    location: "Hawassa, Sidama, Ethiopia",
     period: "Mar 2025 – Jul 2025 (4 months)",
     type: "Internship",
     description:
