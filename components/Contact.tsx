@@ -39,7 +39,7 @@ export default function Contact() {
     {
       icon: Phone,
       label: "Phone",
-      value: "+251 099 478 1422",
+      value: "+251 994 781 422",
       href: "tel:+251994781422",
       color: "text-green-400",
       bg: "bg-green-500/10",
