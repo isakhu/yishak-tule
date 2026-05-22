@@ -10,7 +10,7 @@ const highlights = [
   {
     icon: GraduationCap,
     title: "Education",
-    desc: "Computer Science student at Dire Dawa University",
+    desc: "Software Engineering student at Dire Dawa University",
     color: "text-indigo-400",
     bg: "bg-indigo-500/10",
     border: "border-indigo-500/20",
@@ -78,7 +78,7 @@ export default function About() {
             scalable web applications and modern digital experiences.
           </p>
           <p className="text-zinc-400 text-lg leading-relaxed">
-            Currently studying Computer Science at{" "}
+            Currently studying Software Engineering at{" "}
             <span className="text-indigo-400 font-medium">
               Dire Dawa University
             </span>
