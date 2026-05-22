@@ -34,7 +34,7 @@ const education = [
     degree: "BSc in Software Engineering",
     school: "Dire Dawa University",
     location: "Dire Dawa, Ethiopia",
-    period: "2022 – Present",
+    period: "2024 – Present",
     description:
       "Studying core software engineering principles including algorithms, data structures, software design, and full stack web development.",
     color: "border-purple-500/40",
