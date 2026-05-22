@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, Send, MapPin, CheckCircle2, Code2, Globe } from "lucide-react";
+import { Mail, Send, MapPin, CheckCircle2, Code2, Globe, Phone, MessageCircle } from "lucide-react";
 import SectionWrapper from "./SectionWrapper";
 import SectionHeading from "./SectionHeading";
 
@@ -18,7 +18,6 @@ export default function Contact() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    // Simulate async submission
     await new Promise((r) => setTimeout(r, 1200));
     setLoading(false);
     setSubmitted(true);
@@ -27,8 +26,65 @@ export default function Contact() {
   const inputClass =
     "w-full px-4 py-3 rounded-xl glass border border-white/10 bg-transparent text-white placeholder-zinc-600 text-sm focus:outline-none focus:border-indigo-500/60 focus:ring-1 focus:ring-indigo-500/30 transition-all duration-200";
 
+  const contactItems = [
+    {
+      icon: Mail,
+      label: "Email",
+      value: "yishakhak@gmail.com",
+      href: "mailto:yishakhak@gmail.com",
+      color: "text-indigo-400",
+      bg: "bg-indigo-500/10",
+      border: "border-indigo-500/20",
+    },
+    {
+      icon: Phone,
+      label: "Phone",
+      value: "+251 099 478 1422",
+      href: "tel:+251994781422",
+      color: "text-green-400",
+      bg: "bg-green-500/10",
+      border: "border-green-500/20",
+    },
+    {
+      icon: MessageCircle,
+      label: "Telegram",
+      value: "@yzak_22",
+      href: "https://t.me/yzak_22",
+      color: "text-sky-400",
+      bg: "bg-sky-500/10",
+      border: "border-sky-500/20",
+    },
+    {
+      icon: Code2,
+      label: "GitHub",
+      value: "github.com/isakhu",
+      href: "https://github.com/isakhu",
+      color: "text-purple-400",
+      bg: "bg-purple-500/10",
+      border: "border-purple-500/20",
+    },
+    {
+      icon: Globe,
+      label: "LinkedIn",
+      value: "linkedin.com/in/yishak-tule",
+      href: "https://www.linkedin.com/in/yishak-tule",
+      color: "text-cyan-400",
+      bg: "bg-cyan-500/10",
+      border: "border-cyan-500/20",
+    },
+    {
+      icon: MapPin,
+      label: "Location",
+      value: "Ethiopia 🇪🇹",
+      href: null,
+      color: "text-pink-400",
+      bg: "bg-pink-500/10",
+      border: "border-pink-500/20",
+    },
+  ];
+
   return (
-    <SectionWrapper id="contact">
+    <SectionWrapper id="contact" noAnimation>
       <SectionHeading
         label="Get In Touch"
         title="Contact Me"
@@ -37,59 +93,17 @@ export default function Contact() {
 
       <div className="grid lg:grid-cols-2 gap-12">
         {/* Info */}
-        <motion.div
-          initial={{ opacity: 0, x: -30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="space-y-8"
-        >
+        <div className="space-y-8">
           <div>
             <h3 className="text-white font-bold text-xl mb-4">Let&apos;s work together</h3>
             <p className="text-zinc-400 leading-relaxed">
-              I&apos;m currently open to freelance projects, internship opportunities, and full-time roles. Whether you have a project idea or just want to connect, feel free to reach out.
+              I&apos;m currently open to freelance projects, internship opportunities, and full-time
+              roles. Whether you have a project idea or just want to connect, feel free to reach out.
             </p>
           </div>
 
-          <div className="space-y-4">
-            {[
-              {
-                icon: Mail,
-                label: "Email",
-                value: "yishakhak@gmail.com",
-                href: "mailto:yishakhak@gmail.com",
-                color: "text-indigo-400",
-                bg: "bg-indigo-500/10",
-                border: "border-indigo-500/20",
-              },
-              {
-                icon: Code2,
-                label: "GitHub",
-                value: "github.com/isakhu",
-                href: "https://github.com/isakhu",
-                color: "text-purple-400",
-                bg: "bg-purple-500/10",
-                border: "border-purple-500/20",
-              },
-              {
-                icon: Globe,
-                label: "LinkedIn",
-                value: "linkedin.com/in/yishak-tule",
-                href: "https://www.linkedin.com/in/yishak-tule",
-                color: "text-cyan-400",
-                bg: "bg-cyan-500/10",
-                border: "border-cyan-500/20",
-              },
-              {
-                icon: MapPin,
-                label: "Location",
-                value: "Ethiopia 🇪🇹",
-                href: null,
-                color: "text-pink-400",
-                bg: "bg-pink-500/10",
-                border: "border-pink-500/20",
-              },
-            ].map((item) => (
+          <div className="space-y-3">
+            {contactItems.map((item) => (
               <motion.div
                 key={item.label}
                 whileHover={{ x: 4 }}
@@ -116,15 +130,10 @@ export default function Contact() {
               </motion.div>
             ))}
           </div>
-        </motion.div>
+        </div>
 
         {/* Form */}
-        <motion.div
-          initial={{ opacity: 0, x: 30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
+        <div>
           {submitted ? (
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
@@ -239,7 +248,7 @@ export default function Contact() {
               </motion.button>
             </form>
           )}
-        </motion.div>
+        </div>
       </div>
     </SectionWrapper>
   );

@@ -7,9 +7,20 @@ interface SectionWrapperProps {
   id: string;
   children: ReactNode;
   className?: string;
+  noAnimation?: boolean;
 }
 
-export default function SectionWrapper({ id, children, className = "" }: SectionWrapperProps) {
+export default function SectionWrapper({ id, children, className = "", noAnimation = false }: SectionWrapperProps) {
+  if (noAnimation) {
+    return (
+      <section id={id} className={`section-padding ${className}`}>
+        <div className="max-w-7xl mx-auto">
+          {children}
+        </div>
+      </section>
+    );
+  }
+
   return (
     <motion.section
       id={id}

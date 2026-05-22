@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Mail, Code2, Heart, ArrowUp, Globe, Terminal } from "lucide-react";
+import { Mail, Code2, Heart, ArrowUp, Globe, Terminal, MessageCircle } from "lucide-react";
 
 const footerLinks = [
   { label: "About", href: "#about" },
@@ -16,6 +16,7 @@ const footerLinks = [
 const socials = [
   { icon: Code2, href: "https://github.com/isakhu", label: "GitHub" },
   { icon: Globe, href: "https://www.linkedin.com/in/yishak-tule", label: "LinkedIn" },
+  { icon: MessageCircle, href: "https://t.me/yzak_22", label: "Telegram" },
   { icon: Mail, href: "mailto:yishakhak@gmail.com", label: "Email" },
 ];
 
