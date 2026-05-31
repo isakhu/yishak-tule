@@ -25,7 +25,7 @@ const projects = [
       "Full-stack Ethiopian fashion e-commerce platform with product management, orders, and admin dashboard. Branches in Dire Dawa and Hawassa.",
     tech: ["FastAPI", "SQLAlchemy", "Python", "SQLite"],
     github: "https://github.com/isakhu/yzak-fashion-store",
-    demo: "https://yzak-fashion-store.onrender.com",
+    demo: "https://yzak-fashion-store-1.onrender.com",
     featured: true,
     badge: "Live",
     badgeColor: "text-green-400 bg-green-500/10 border-green-500/20",
