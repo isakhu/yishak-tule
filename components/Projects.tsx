@@ -119,4 +119,46 @@ export default function Projects() {
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
                   className="flex items-center gap-1.5 text-zinc-400 hover:text-white text-sm transition-colors"
-                ></motion.a>
+                >
+                  <Code2 size={15} />
+                  <span>Code</span>
+                </motion.a>
+                <motion.a
+                  href={project.demo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                  className="flex items-center gap-1.5 text-zinc-400 hover:text-indigo-400 text-sm transition-colors ml-auto"
+                >
+                  <ExternalLink size={15} />
+                  <span>Live Demo</span>
+                </motion.a>
+              </div>
+            </div>
+          </motion.div>
+        ))}
+      </div>
+
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ delay: 0.5 }}
+        className="text-center mt-12"
+      >
+        <motion.a
+          href="https://github.com/isakhu"
+          target="_blank"
+          rel="noopener noreferrer"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          className="inline-flex items-center gap-2 px-6 py-3 rounded-xl glass border border-white/10 text-zinc-300 hover:text-white hover:border-indigo-500/40 transition-all duration-200 font-medium"
+        >
+          <Code2 size={18} />
+          View All on GitHub
+        </motion.a>
+      </motion.div>
+    </SectionWrapper>
+  );
+}
