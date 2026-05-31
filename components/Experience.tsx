@@ -25,7 +25,7 @@ const education = [
 ];
 
 const stats = [
-  { value: "7+", label: "projects" },
+  { value: "4+", label: "projects" },
   { value: "1+", label: "years exp." },
   { value: "10+", label: "technologies" },
 ];
