@@ -1,4 +1,3 @@
-```tsx
 "use client";
 
 import { motion } from "framer-motion";
@@ -123,6 +122,3 @@ export default function Experience() {
     </SectionWrapper>
   );
 }
-```
-
-Stripped down to just the essentials — role, company, period, location, tech pills. No descriptions, no achievement lists, no icons. Clean and tight.
