@@ -2,6 +2,7 @@
 
 import { ExternalLink, Code2, Star } from "lucide-react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import SectionWrapper from "./SectionWrapper";
 import SectionHeading from "./SectionHeading";
 
@@ -16,8 +17,8 @@ const projects = [
     featured: true,
     badge: "Live",
     badgeColor: "text-yellow-400 bg-yellow-500/10 border-yellow-500/20",
-    gradient: "from-yellow-500/20 to-amber-500/20",
     border: "border-yellow-500/20",
+    image: "https://image.thum.io/get/width/1200/https://yzak-luxury-brand.vercel.app",
   },
   {
     title: "Yzak Fashion Store",
@@ -25,12 +26,12 @@ const projects = [
       "Full-stack Ethiopian fashion e-commerce platform with product management, orders, and admin dashboard. Branches in Dire Dawa and Hawassa.",
     tech: ["FastAPI", "SQLAlchemy", "Python", "SQLite"],
     github: "https://github.com/isakhu/yzak-fashion-store",
-    demo: "https://yzak-fashion-store.onrender.com",
+    demo: "https://yzak-fashion-store-1.onrender.com",
     featured: true,
     badge: "Live",
     badgeColor: "text-green-400 bg-green-500/10 border-green-500/20",
-    gradient: "from-purple-500/20 to-pink-500/20",
-    border: "border-purple-500/20",
+    border: "border-green-500/20",
+    image: "https://image.thum.io/get/width/1200/https://yzak-fashion-store-1.onrender.com",
   },
   {
     title: "Student Task Planner",
@@ -42,8 +43,8 @@ const projects = [
     featured: true,
     badge: "Live",
     badgeColor: "text-cyan-400 bg-cyan-500/10 border-cyan-500/20",
-    gradient: "from-cyan-500/20 to-indigo-500/20",
     border: "border-cyan-500/20",
+    image: "https://image.thum.io/get/width/1200/https://student-task-planner-6kkd.onrender.com",
   },
   {
     title: "Personal Portfolio",
@@ -55,8 +56,8 @@ const projects = [
     featured: true,
     badge: "Live",
     badgeColor: "text-indigo-400 bg-indigo-500/10 border-indigo-500/20",
-    gradient: "from-indigo-500/20 to-purple-500/20",
     border: "border-indigo-500/20",
+    image: "https://image.thum.io/get/width/1200/https://yishak-tule.vercel.app",
   },
 ];
 
@@ -80,8 +81,16 @@ export default function Projects() {
             whileHover={{ y: -8 }}
             className={`group glass border ${project.border} rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-300 flex flex-col`}
           >
-            <div className={`relative w-full h-44 bg-gradient-to-br ${project.gradient} flex items-center justify-center`}>
-              <Code2 size={36} className="text-white/20" />
+            <div className="relative h-48 overflow-hidden">
+              <Image
+                src={project.image}
+                alt={project.title}
+                fill
+                className="object-cover group-hover:scale-105 transition-transform duration-500"
+                sizes="(max-width: 768px) 100vw, 50vw"
+                unoptimized
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
               <div className="absolute top-3 left-3">
                 <span className={`px-2.5 py-1 rounded-full text-xs font-medium border backdrop-blur-sm ${project.badgeColor}`}>
                   {project.badge}
