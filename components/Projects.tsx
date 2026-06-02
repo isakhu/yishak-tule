@@ -70,7 +70,7 @@ const projects = [
     badge: "Live",
     badgeColor: "text-green-400 bg-green-500/10 border-green-500/20",
     border: "border-green-500/20",
-    image: "https://og-image-service.vercel.app/api?url=https://school-managment-system-flax.vercel.app",
+    image: "https://api.microlink.io/?url=https://school-managment-system-flax.vercel.app&screenshot=true&meta=false&embed=screenshot.url",
   },
 ];
 
