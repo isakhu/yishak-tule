@@ -71,8 +71,9 @@ body {
   opacity: 0.35;
 }
 
-.section-padding { padding: 6rem 1.5rem; }
-@media (min-width: 768px) { .section-padding { padding: 8rem 2rem; } }
+/* Compact section rhythm: keep content close together and remove large empty bands. */
+.section-padding { padding: 3.5rem 1.25rem; }
+@media (min-width: 768px) { .section-padding { padding: 5rem 2rem; } }
 
 [class*="text-indigo-"], [class*="text-purple-"], [class*="text-pink-"] { color: #d99b16 !important; }
 [class*="bg-indigo-"], [class*="bg-purple-"], [class*="bg-pink-"] { background-color: #f5b82e !important; }
