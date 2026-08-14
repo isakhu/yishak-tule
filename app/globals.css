@@ -94,6 +94,7 @@ body {
 /* Normalize the original Hero's inline indigo/purple styling. */
 [style*="linear-gradient(135deg, #6366f1"] { background: linear-gradient(135deg, #f5b82e, #d99b16) !important; }
 [style*="rgba(99,102,241"] { box-shadow: 0 8px 30px rgba(245,184,46,.25) !important; }
+[style*="rgba(99,102,241,0.04)"] { background-image: linear-gradient(rgba(17,17,17,.04) 1px, transparent 1px), linear-gradient(90deg, rgba(17,17,17,.04) 1px, transparent 1px) !important; }
 [style*="#6366f1"], [style*="#a855f7"], [style*="#ec4899"], [style*="99,102,241"], [style*="168,85,247"] { border-color: #f5b82e !important; }
 
 button, a { -webkit-tap-highlight-color: transparent; }
