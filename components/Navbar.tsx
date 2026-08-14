@@ -22,8 +22,6 @@ export default function Navbar() {
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
-
-      // Active section detection
       const sections = navLinks.map((l) => l.href.replace("#", ""));
       for (const id of [...sections].reverse()) {
         const el = document.getElementById(id);
@@ -54,25 +52,23 @@ export default function Navbar() {
       transition={{ duration: 0.6, ease: "easeOut" }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "glass border-b border-white/5 shadow-lg shadow-black/20"
+          ? "glass border-b border-black/10 shadow-lg shadow-black/10"
           : "bg-transparent"
       }`}
     >
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-        {/* Logo */}
         <motion.a
           href="#"
           onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); }}
           className="flex items-center gap-2 group"
           whileHover={{ scale: 1.05 }}
         >
-          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center glow-indigo">
-            <Code2 size={16} className="text-white" />
+          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#f5b82e] to-[#d99b16] flex items-center justify-center shadow-[0_8px_22px_rgba(245,184,46,0.25)]">
+            <Code2 size={16} className="text-black" />
           </div>
-          <span className="font-bold text-lg tracking-wider gradient-text">YZAK</span>
+          <span className="font-black text-lg tracking-[0.18em] text-[#111111]">YZAK</span>
         </motion.a>
 
-        {/* Desktop Links */}
         <ul className="hidden md:flex items-center gap-1">
           {navLinks.map((link) => {
             const id = link.href.replace("#", "");
@@ -81,16 +77,16 @@ export default function Navbar() {
               <li key={link.href}>
                 <button
                   onClick={() => handleNavClick(link.href)}
-                  className={`relative px-3 py-2 text-sm font-medium rounded-lg transition-colors duration-200 ${
+                  className={`relative px-3 py-2 text-sm font-semibold rounded-lg transition-colors duration-200 ${
                     isActive
-                      ? "text-indigo-400"
-                      : "text-zinc-400 hover:text-white"
+                      ? "text-[#111111]"
+                      : "text-[#555555] hover:text-[#111111]"
                   }`}
                 >
                   {isActive && (
                     <motion.span
                       layoutId="nav-indicator"
-                      className="absolute inset-0 rounded-lg bg-indigo-500/10 border border-indigo-500/20"
+                      className="absolute inset-0 rounded-lg bg-[#f5b82e]/20 border border-[#f5b82e]/50"
                       transition={{ type: "spring", bounce: 0.2, duration: 0.4 }}
                     />
                   )}
@@ -101,21 +97,19 @@ export default function Navbar() {
           })}
         </ul>
 
-        {/* CTA */}
         <div className="hidden md:flex items-center gap-3">
           <motion.a
             href="mailto:yishakhak@gmail.com"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="px-4 py-2 text-sm font-semibold rounded-lg bg-gradient-to-r from-indigo-500 to-purple-600 text-white glow-indigo hover:opacity-90 transition-opacity"
+            className="px-4 py-2 text-sm font-bold rounded-lg bg-[#f5b82e] text-[#111111] shadow-[0_8px_22px_rgba(245,184,46,0.28)] hover:bg-[#d99b16] transition-colors"
           >
             Hire Me
           </motion.a>
         </div>
 
-        {/* Mobile Menu Toggle */}
         <button
-          className="md:hidden text-zinc-400 hover:text-white transition-colors"
+          className="md:hidden text-[#3f3f3f] hover:text-[#111111] transition-colors"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle menu"
         >
@@ -123,7 +117,6 @@ export default function Navbar() {
         </button>
       </nav>
 
-      {/* Mobile Menu */}
       <AnimatePresence>
         {menuOpen && (
           <motion.div
@@ -131,7 +124,7 @@ export default function Navbar() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.25 }}
-            className="md:hidden glass border-t border-white/5 overflow-hidden"
+            className="md:hidden bg-white/95 border-t border-black/10 overflow-hidden shadow-lg"
           >
             <ul className="px-4 py-4 flex flex-col gap-1">
               {navLinks.map((link) => {
@@ -141,10 +134,10 @@ export default function Navbar() {
                   <li key={link.href}>
                     <button
                       onClick={() => handleNavClick(link.href)}
-                      className={`w-full text-left px-4 py-3 rounded-lg text-sm font-medium transition-colors ${
+                      className={`w-full text-left px-4 py-3 rounded-lg text-sm font-semibold transition-colors ${
                         isActive
-                          ? "text-indigo-400 bg-indigo-500/10"
-                          : "text-zinc-400 hover:text-white hover:bg-white/5"
+                          ? "text-[#111111] bg-[#f5b82e]/20"
+                          : "text-[#555555] hover:text-[#111111] hover:bg-black/5"
                       }`}
                     >
                       {link.label}
@@ -155,7 +148,7 @@ export default function Navbar() {
               <li className="pt-2">
                 <a
                   href="mailto:yishakhak@gmail.com"
-                  className="block w-full text-center px-4 py-3 rounded-lg bg-gradient-to-r from-indigo-500 to-purple-600 text-white text-sm font-semibold"
+                  className="block w-full text-center px-4 py-3 rounded-lg bg-[#f5b82e] text-[#111111] text-sm font-bold shadow-[0_8px_22px_rgba(245,184,46,0.22)]"
                 >
                   Hire Me
                 </a>
