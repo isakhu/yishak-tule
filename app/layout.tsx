@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Yishak.T | YZAK — Software Engineer & Full Stack Developer",
+  title: "Yishak Tule | YZAK — Software Engineer & Full Stack Developer",
   description:
     "Yishak Tule (YZAK) is a Software Engineer and Full Stack Developer from Ethiopia, specializing in React, Next.js, Node.js, and modern web applications.",
   keywords: [
@@ -31,14 +31,14 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    title: "Yishak.T | YZAK — Software Engineer & Full Stack Developer",
+    title: "Yishak Tule | YZAK — Software Engineer & Full Stack Developer",
     description:
       "Software Engineer and Full Stack Developer from Ethiopia building scalable web applications and modern digital experiences.",
     siteName: "YZAK Portfolio",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Yishak.T | YZAK — Software Engineer & Full Stack Developer",
+    title: "Yishak Tule | YZAK — Software Engineer & Full Stack Developer",
     description:
       "Software Engineer and Full Stack Developer from Ethiopia building scalable web applications.",
   },
@@ -58,7 +58,7 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full bg-[#050508] text-zinc-100 overflow-x-hidden">
+      <body className="min-h-full bg-[#f4f3ef] text-[#111111] overflow-x-hidden">
         {children}
       </body>
     </html>
