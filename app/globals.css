@@ -1,8 +1,13 @@
 @import "tailwindcss";
 
 :root {
-  --background: #050508;
-  --foreground: #f0f0f5;
+  --background: #f4f3ef;
+  --foreground: #111111;
+  --accent: #f5b82e;
+  --accent-dark: #d99b16;
+  --charcoal: #3f3f3f;
+  --surface: #ffffff;
+  --surface-muted: #d2d2d2;
 }
 
 @theme inline {
@@ -12,14 +17,8 @@
   --font-mono: var(--font-geist-mono);
 }
 
-* {
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 body {
   background: var(--background);
   color: var(--foreground);
@@ -27,74 +26,75 @@ body {
   overflow-x: hidden;
 }
 
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 6px;
-}
-::-webkit-scrollbar-track {
-  background: #0a0a0f;
-}
-::-webkit-scrollbar-thumb {
-  background: #6366f1;
-  border-radius: 3px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #818cf8;
-}
+/* YZAK visual system — inspired by the supplied gold / charcoal reference. */
+::-webkit-scrollbar { width: 7px; }
+::-webkit-scrollbar-track { background: #d2d2d2; }
+::-webkit-scrollbar-thumb { background: #f5b82e; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #d99b16; }
 
-/* Glow utilities */
-.glow-indigo {
-  box-shadow: 0 0 20px rgba(99, 102, 241, 0.4), 0 0 60px rgba(99, 102, 241, 0.15);
-}
+.glow-indigo,
 .glow-purple {
-  box-shadow: 0 0 20px rgba(168, 85, 247, 0.4), 0 0 60px rgba(168, 85, 247, 0.15);
+  box-shadow: 0 8px 28px rgba(245, 184, 46, 0.28), 0 0 0 1px rgba(245, 184, 46, 0.25);
 }
-.text-glow {
-  text-shadow: 0 0 30px rgba(99, 102, 241, 0.6);
-}
+.text-glow { text-shadow: 0 0 28px rgba(245, 184, 46, 0.35); }
 
-/* Glass card */
 .glass {
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.07);
+  background: rgba(255, 255, 255, 0.84);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(17, 17, 17, 0.12);
 }
 
-/* Gradient text */
 .gradient-text {
-  background: linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #ec4899 100%);
+  background: linear-gradient(135deg, #111111 0%, #3f3f3f 55%, #f5b82e 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-/* Grid background */
 .grid-bg {
   background-image:
-    linear-gradient(rgba(99, 102, 241, 0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(99, 102, 241, 0.06) 1px, transparent 1px);
+    linear-gradient(rgba(17,17,17,0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(17,17,17,0.035) 1px, transparent 1px);
   background-size: 60px 60px;
 }
 
-/* Noise texture overlay */
 .noise::before {
   content: '';
   position: fixed;
   inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.025'/%3E%3C/svg%3E");
   pointer-events: none;
   z-index: 0;
-  opacity: 0.4;
+  opacity: 0.35;
 }
 
-/* Section fade-in handled by framer motion */
-.section-padding {
-  padding: 6rem 1.5rem;
-}
+.section-padding { padding: 6rem 1.5rem; }
+@media (min-width: 768px) { .section-padding { padding: 8rem 2rem; } }
 
-@media (min-width: 768px) {
-  .section-padding {
-    padding: 8rem 2rem;
-  }
-}
+/* Convert the existing indigo/purple utility palette to the new gold/black system. */
+[class*="text-indigo-"], [class*="text-purple-"], [class*="text-pink-"] { color: #d99b16 !important; }
+[class*="bg-indigo-"], [class*="bg-purple-"], [class*="bg-pink-"] { background-color: #f5b82e !important; }
+[class*="border-indigo-"], [class*="border-purple-"], [class*="border-pink-"] { border-color: rgba(245,184,46,.55) !important; }
+[class*="from-indigo-"], [class*="from-purple-"], [class*="from-pink-"] { --tw-gradient-from: #f5b82e !important; }
+[class*="via-indigo-"], [class*="via-purple-"], [class*="via-pink-"] { --tw-gradient-via: #f5b82e !important; }
+[class*="to-indigo-"], [class*="to-purple-"], [class*="to-pink-"] { --tw-gradient-to: #d99b16 !important; }
+
+[class*="text-zinc-100"], [class*="text-zinc-200"], [class*="text-zinc-300"], [class*="text-zinc-900"] { color: #111111 !important; }
+[class*="text-zinc-400"] { color: #3f3f3f !important; }
+[class*="text-zinc-500"] { color: #555555 !important; }
+[class*="text-zinc-600"], [class*="text-zinc-700"] { color: #666666 !important; }
+.text-white { color: #111111 !important; }
+
+[class~="bg-[#050508]"], [class~="bg-[#0d0d14]"], [class~="bg-[#0a0a0f]"] { background-color: #f4f3ef !important; }
+[class*="bg-white/"] { background-color: rgba(255,255,255,.72) !important; }
+[class*="border-white/"] { border-color: rgba(17,17,17,.12) !important; }
+[class*="shadow-black/"] { --tw-shadow-color: rgba(17,17,17,.14) !important; }
+
+/* Normalize the original Hero's inline indigo/purple styling. */
+[style*="linear-gradient(135deg, #6366f1"] { background: linear-gradient(135deg, #f5b82e, #d99b16) !important; }
+[style*="rgba(99,102,241"] { box-shadow: 0 8px 30px rgba(245,184,46,.25) !important; }
+[style*="#6366f1"], [style*="#a855f7"], [style*="#ec4899"], [style*="99,102,241"], [style*="168,85,247"] { border-color: #f5b82e !important; }
+
+button, a { -webkit-tap-highlight-color: transparent; }
+::selection { background: #f5b82e; color: #111111; }
