@@ -3,6 +3,7 @@
 import Image from "next/image";
 import {
   ArrowUpRight,
+  Download,
   Mail,
   MapPin,
   Moon,
@@ -154,7 +155,7 @@ const copy = {
     heroEyebrow: "SOFTWARE ENGINEER · FULL-STACK DEVELOPER",
     heroTitle: "Yishak Tule",
     heroLead: "I build web applications, business systems, AI products, and practical software experiences that solve real problems.",
-    explore: "Explore my work", talk: "Start a conversation",
+    resume: "Download Resume",
     workEyebrow: "SELECTED WORK", workTitle: "Things I’ve built.",
     workLead: "From product ideas to working systems, these are projects I’ve built while growing as an engineer.",
     allProjects: "See all projects on GitHub", liveDemo: "Live demo", sourceCode: "Source code",
@@ -174,7 +175,7 @@ const copy = {
     heroEyebrow: "የሶፍትዌር ኢንጂነር · FULL-STACK DEVELOPER",
     heroTitle: "ይሻክ ቱሌ",
     heroLead: "እውነተኛ ችግሮችን የሚፈቱ የድር መተግበሪያዎችን፣ የንግድ ስርዓቶችን፣ AI ምርቶችን እና ተግባራዊ ሶፍትዌሮችን እገነባለሁ።",
-    explore: "ስራዎቼን ይመልከቱ", talk: "እንወያይ",
+    resume: "የሪዙሜ ፋይል ያውርዱ",
     workEyebrow: "የተመረጡ ስራዎች", workTitle: "የገነባኋቸው ነገሮች።",
     workLead: "ከምርት ሀሳቦች እስከ ሙሉ ስርዓቶች፣ በኢንጂነርነት ልምዴን እያሳደግሁ የገነባኋቸው ፕሮጀክቶች ናቸው።",
     allProjects: "ሁሉንም ፕሮጀክቶች በGitHub ይመልከቱ", liveDemo: "የቀጥታ ማሳያ", sourceCode: "የምንጭ ኮድ",
@@ -236,8 +237,7 @@ export default function Home() {
           <h1>{t.heroTitle}</h1>
           <p className="hero-lede">{t.heroLead}</p>
           <div className="hero-actions">
-            <button className="dark-button" onClick={() => navigate("work")}>{t.explore} <ArrowUpRight size={16} /></button>
-            <a className="text-link" href="mailto:yishakhak@gmail.com">{t.talk} <ArrowUpRight size={15} /></a>
+            <a className="dark-button" href="/cv.pdf" download="Yishak_Tule_Resume.pdf">{t.resume} <Download size={16} /></a>
           </div>
         </div>
         <div className="hero-portrait">
