@@ -83,6 +83,8 @@ a { color: inherit; text-decoration: none; }
 .work-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 58px 28px; }
 .work-card { display: block; }
 .work-card.featured { grid-column: 1 / -1; }
+.work-grid .work-card:nth-child(2),
+.work-grid .work-card:nth-child(3) { display: none; }
 .work-image { position: relative; aspect-ratio: 1.55; overflow: hidden; background: #d8d3c9; }
 .featured .work-image { aspect-ratio: 2.25; }
 .cover-image { object-fit: cover; filter: saturate(.72); transition: transform .55s ease, filter .4s ease; }
