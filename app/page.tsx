@@ -8,25 +8,22 @@ import Services from "@/components/Services";
 import Resume from "@/components/Resume";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
-import Reveal from "@/components/Reveal";
-import LoadingIntro from "@/components/LoadingIntro";
 
 export default function Home() {
   return (
     <>
-      <LoadingIntro />
       <Navbar />
       <main>
         <Hero />
-        <Reveal><About /></Reveal>
-        <Reveal><Skills /></Reveal>
-        <Reveal><Projects /></Reveal>
-        <Reveal><Experience /></Reveal>
-        <Reveal><Services /></Reveal>
-        <Reveal><Resume /></Reveal>
-        <Reveal><Contact /></Reveal>
+        <About />
+        <Skills />
+        <Projects />
+        <Experience />
+        <Services />
+        <Resume />
+        <Contact />
       </main>
-      <Reveal><Footer /></Reveal>
+      <Footer />
     </>
   );
 }
