@@ -1,253 +1,44 @@
-"use client";
-
-import { useState } from "react";
-import { motion } from "framer-motion";
-import { Mail, Send, MapPin, CheckCircle2, Code2, Globe, Phone, MessageCircle } from "lucide-react";
+import { ArrowUpRight, Code2, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 import SectionWrapper from "./SectionWrapper";
 import SectionHeading from "./SectionHeading";
 
+const contacts = [
+  { icon: Mail, label: "Email", value: "yishakhak@gmail.com", href: "mailto:yishakhak@gmail.com" },
+  { icon: Phone, label: "Phone", value: "+251 994 781 422", href: "tel:+251994781422" },
+  { icon: MessageCircle, label: "Telegram", value: "@yzak_22", href: "https://t.me/yzak_22" },
+  { icon: Code2, label: "GitHub", value: "github.com/isakhu", href: "https://github.com/isakhu" },
+];
+
 export default function Contact() {
-  const [form, setForm] = useState({ name: "", email: "", subject: "", message: "" });
-  const [submitted, setSubmitted] = useState(false);
-  const [loading, setLoading] = useState(false);
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setLoading(true);
-    await new Promise((r) => setTimeout(r, 1200));
-    setLoading(false);
-    setSubmitted(true);
-  };
-
-  const inputClass =
-    "w-full px-4 py-3 rounded-xl glass border border-white/10 bg-transparent text-white placeholder-zinc-600 text-sm focus:outline-none focus:border-indigo-500/60 focus:ring-1 focus:ring-indigo-500/30 transition-all duration-200";
-
-  const contactItems = [
-    {
-      icon: Mail,
-      label: "Email",
-      value: "yishakhak@gmail.com",
-      href: "mailto:yishakhak@gmail.com",
-      color: "text-indigo-400",
-      bg: "bg-indigo-500/10",
-      border: "border-indigo-500/20",
-    },
-    {
-      icon: Phone,
-      label: "Phone",
-      value: "+251 994 781 422",
-      href: "tel:+251994781422",
-      color: "text-green-400",
-      bg: "bg-green-500/10",
-      border: "border-green-500/20",
-    },
-    {
-      icon: MessageCircle,
-      label: "Telegram",
-      value: "@yzak_22",
-      href: "https://t.me/yzak_22",
-      color: "text-sky-400",
-      bg: "bg-sky-500/10",
-      border: "border-sky-500/20",
-    },
-    {
-      icon: Code2,
-      label: "GitHub",
-      value: "github.com/isakhu",
-      href: "https://github.com/isakhu",
-      color: "text-purple-400",
-      bg: "bg-purple-500/10",
-      border: "border-purple-500/20",
-    },
-    {
-      icon: Globe,
-      label: "LinkedIn",
-      value: "linkedin.com/in/yishak-tule",
-      href: "https://www.linkedin.com/in/yishak-tule",
-      color: "text-cyan-400",
-      bg: "bg-cyan-500/10",
-      border: "border-cyan-500/20",
-    },
-    {
-      icon: MapPin,
-      label: "Location",
-      value: "Ethiopia 🇪🇹",
-      href: null,
-      color: "text-pink-400",
-      bg: "bg-pink-500/10",
-      border: "border-pink-500/20",
-    },
-  ];
-
   return (
-    <SectionWrapper id="contact" noAnimation>
+    <SectionWrapper id="contact" className="border-t border-white/5 bg-[#0d0d0d]">
       <SectionHeading
-        label="Get In Touch"
-        title="Contact Me"
-        subtitle="Have a project in mind or just want to say hello? I'd love to hear from you."
+        label="Contact"
+        title="Let&apos;s build something worth shipping."
+        subtitle="For projects, collaborations, or opportunities, the fastest way to reach me is by email or Telegram."
       />
 
-      <div className="grid lg:grid-cols-2 gap-12">
-        {/* Info */}
-        <div className="space-y-8">
-          <div>
-            <h3 className="text-white font-bold text-xl mb-4">Let&apos;s work together</h3>
-            <p className="text-zinc-400 leading-relaxed">
-              I&apos;m currently open to freelance projects, internship opportunities, and full-time
-              roles. Whether you have a project idea or just want to connect, feel free to reach out.
-            </p>
-          </div>
-
-          <div className="space-y-3">
-            {contactItems.map((item) => (
-              <motion.div
-                key={item.label}
-                whileHover={{ x: 4 }}
-                className={`flex items-center gap-4 glass border ${item.border} rounded-xl p-4`}
-              >
-                <div className={`w-10 h-10 rounded-lg ${item.bg} flex items-center justify-center shrink-0`}>
-                  <item.icon size={18} className={item.color} />
-                </div>
-                <div>
-                  <p className="text-zinc-500 text-xs mb-0.5">{item.label}</p>
-                  {item.href ? (
-                    <a
-                      href={item.href}
-                      target={item.href.startsWith("http") ? "_blank" : undefined}
-                      rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                      className={`${item.color} text-sm font-medium hover:underline`}
-                    >
-                      {item.value}
-                    </a>
-                  ) : (
-                    <p className="text-white text-sm font-medium">{item.value}</p>
-                  )}
-                </div>
-              </motion.div>
-            ))}
-          </div>
+      <div className="grid gap-4 lg:grid-cols-[1.1fr_.9fr]">
+        <div className="rounded-2xl border border-[#c9a24d]/25 bg-[#111111] p-6 sm:p-8">
+          <p className="text-xs uppercase tracking-[0.2em] text-[#c9a24d]">Start a conversation</p>
+          <h3 className="mt-4 font-display text-3xl leading-tight text-[#f5f5f2] sm:text-4xl">Have an idea, product, or problem to solve?</h3>
+          <p className="mt-4 max-w-xl text-sm leading-6 text-[#8c8c88]">Tell me what you are building, what you need, or where you are stuck. I&apos;ll get back to you through the contact channel you choose.</p>
+          <a href="mailto:yishakhak@gmail.com" className="mt-7 inline-flex items-center gap-2 rounded-full bg-[#f5f5f2] px-5 py-3 text-sm font-semibold text-[#050505] transition-colors hover:bg-[#c9a24d]">
+            Contact Me <ArrowUpRight size={16} />
+          </a>
         </div>
 
-        {/* Form */}
-        <div>
-          {submitted ? (
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              className="glass border border-green-500/30 rounded-2xl p-10 text-center h-full flex flex-col items-center justify-center gap-4"
-            >
-              <div className="w-16 h-16 rounded-full bg-green-500/10 flex items-center justify-center">
-                <CheckCircle2 size={32} className="text-green-400" />
+        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-1">
+          {contacts.map(({ icon: Icon, label, value, href }) => (
+            <a key={label} href={href} target={href.startsWith("http") ? "_blank" : undefined} rel={href.startsWith("http") ? "noopener noreferrer" : undefined} className="group flex items-center gap-4 rounded-xl border border-white/8 bg-[#111111] p-4 transition-colors hover:border-[#c9a24d]/30">
+              <div className="rounded-lg border border-[#c9a24d]/20 bg-[#c9a24d]/[0.07] p-2.5"><Icon size={18} className="text-[#c9a24d]" /></div>
+              <div className="min-w-0">
+                <p className="text-[10px] uppercase tracking-[0.16em] text-[#6f6f6a]">{label}</p>
+                <p className="mt-1 truncate text-sm text-[#f5f5f2] group-hover:text-[#c9a24d]">{value}</p>
               </div>
-              <h3 className="text-white font-bold text-xl">Message Sent!</h3>
-              <p className="text-zinc-400 text-sm max-w-xs">
-                Thanks for reaching out. I&apos;ll get back to you within 24 hours.
-              </p>
-              <button
-                onClick={() => { setSubmitted(false); setForm({ name: "", email: "", subject: "", message: "" }); }}
-                className="mt-2 text-indigo-400 text-sm hover:underline"
-              >
-                Send another message
-              </button>
-            </motion.div>
-          ) : (
-            <form
-              onSubmit={handleSubmit}
-              className="glass border border-white/10 rounded-2xl p-6 sm:p-8 space-y-5"
-            >
-              <div className="grid sm:grid-cols-2 gap-5">
-                <div>
-                  <label htmlFor="name" className="block text-zinc-400 text-xs mb-2 font-medium">
-                    Your Name
-                  </label>
-                  <input
-                    id="name"
-                    name="name"
-                    type="text"
-                    required
-                    value={form.name}
-                    onChange={handleChange}
-                    placeholder="John Doe"
-                    className={inputClass}
-                  />
-                </div>
-                <div>
-                  <label htmlFor="email" className="block text-zinc-400 text-xs mb-2 font-medium">
-                    Email Address
-                  </label>
-                  <input
-                    id="email"
-                    name="email"
-                    type="email"
-                    required
-                    value={form.email}
-                    onChange={handleChange}
-                    placeholder="john@example.com"
-                    className={inputClass}
-                  />
-                </div>
-              </div>
-
-              <div>
-                <label htmlFor="subject" className="block text-zinc-400 text-xs mb-2 font-medium">
-                  Subject
-                </label>
-                <input
-                  id="subject"
-                  name="subject"
-                  type="text"
-                  required
-                  value={form.subject}
-                  onChange={handleChange}
-                  placeholder="Project Inquiry"
-                  className={inputClass}
-                />
-              </div>
-
-              <div>
-                <label htmlFor="message" className="block text-zinc-400 text-xs mb-2 font-medium">
-                  Message
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  required
-                  rows={5}
-                  value={form.message}
-                  onChange={handleChange}
-                  placeholder="Tell me about your project..."
-                  className={`${inputClass} resize-none`}
-                />
-              </div>
-
-              <motion.button
-                type="submit"
-                disabled={loading}
-                whileHover={{ scale: 1.02, boxShadow: "0 0 25px rgba(99,102,241,0.4)" }}
-                whileTap={{ scale: 0.98 }}
-                className="w-full flex items-center justify-center gap-2 px-6 py-4 rounded-xl bg-gradient-to-r from-indigo-500 to-purple-600 text-white font-semibold glow-indigo transition-all duration-200 disabled:opacity-60 disabled:cursor-not-allowed"
-              >
-                {loading ? (
-                  <>
-                    <svg className="animate-spin w-4 h-4" fill="none" viewBox="0 0 24 24">
-                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
-                    </svg>
-                    Sending...
-                  </>
-                ) : (
-                  <>
-                    <Send size={16} />
-                    Send Message
-                  </>
-                )}
-              </motion.button>
-            </form>
-          )}
+            </a>
+          ))}
+          <div className="flex items-center gap-3 px-1 pt-2 text-xs text-[#6f6f6a]"><MapPin size={14} className="text-[#c9a24d]" /> Ethiopia · Open to remote opportunities</div>
         </div>
       </div>
     </SectionWrapper>
