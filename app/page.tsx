@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { ArrowUpRight, Github, Linkedin, Mail, MapPin, Menu, X } from "lucide-react";
+import { ArrowUpRight, Code2, Globe2, Mail, MapPin, Menu, X } from "lucide-react";
 import { useState } from "react";
 
 const projects = [
@@ -82,7 +82,7 @@ export default function Home() {
       </section>
 
       <footer className="footer">
-        <div className="footer-top"><span className="brand">YZAK<span>.</span></span><p>Designing. Building. Learning.</p><div className="socials"><a href="https://github.com/isakhu" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><Github size={18} /></a><a href="https://www.linkedin.com/in/yishak-tule" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><Linkedin size={18} /></a><a href="mailto:yishakhak@gmail.com" aria-label="Email"><Mail size={18} /></a></div></div>
+        <div className="footer-top"><span className="brand">YZAK<span>.</span></span><p>Designing. Building. Learning.</p><div className="socials"><a href="https://github.com/isakhu" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><Code2 size={18} /></a><a href="https://www.linkedin.com/in/yishak-tule" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><Globe2 size={18} /></a><a href="mailto:yishakhak@gmail.com" aria-label="Email"><Mail size={18} /></a></div></div>
         <div className="footer-bottom"><span>© {new Date().getFullYear()} Yishak Tule</span><button onClick={() => navigate("home")}>Back to top ↑</button></div>
       </footer>
     </main>
