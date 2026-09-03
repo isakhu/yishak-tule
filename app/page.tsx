@@ -19,28 +19,42 @@ import { useEffect, useState } from "react";
 type Language = "en" | "am";
 type Theme = "light" | "dark";
 
-const projects = [
+type Project = {
+  title: string;
+  category: { en: string; am: string };
+  description: { en: string; am: string };
+  stack: string;
+  github: string;
+  live?: string;
+  image: string;
+};
+
+const screenshot = (url: string) =>
+  `https://image.thum.io/get/width/1400/crop/820/noanimate/${url}`;
+
+const projects: Project[] = [
   {
     title: "Temar AI",
     category: { en: "AI / Education", am: "AI / ትምህርት" },
     description: {
-      en: "An AI-powered learning product designed to make studying more personal, practical, and accessible.",
-      am: "ትምህርትን የበለጠ ግላዊ፣ ተግባራዊ እና ተደራሽ ለማድረግ የተሰራ በAI የሚንቀሳቀስ የትምህርት ምርት።",
+      en: "An AI-powered study workspace for learning, practice, notes, quizzes, flashcards, and study planning.",
+      am: "ለመማር፣ ልምምድ፣ ማስታወሻ፣ ፈተና፣ ፍላሽካርድ እና የጥናት እቅድ የተሰራ በAI የሚንቀሳቀስ የጥናት መድረክ።",
     },
     stack: "Next.js · TypeScript · AI",
-    href: "https://github.com/isakhu/Temar-AI",
-    image: "/project-codevault.png",
+    live: "https://temar-ai.vercel.app/",
+    github: "https://github.com/isakhu/Temar-AI",
+    image: screenshot("https://temar-ai.vercel.app/"),
   },
   {
     title: "Negade Pay",
     category: { en: "FinTech", am: "ፋይናንስ / FinTech" },
     description: {
-      en: "A digital payment concept focused on simple and practical financial experiences.",
+      en: "A digital payment product concept focused on simple, practical financial experiences.",
       am: "ቀላል እና ተግባራዊ የዲጂታል ክፍያ ልምድ ላይ ያተኮረ የFinTech ምርት ሀሳብ።",
     },
     stack: "Web · Payments · Product Design",
-    href: "https://github.com/isakhu/Negade-pay",
-    image: "/project-devcollab.png",
+    github: "https://github.com/isakhu/Negade-pay",
+    image: "https://opengraph.githubassets.com/1/isakhu/Negade-pay",
   },
   {
     title: "Metoriya",
@@ -50,8 +64,8 @@ const projects = [
       am: "በንፁህ እና ዘመናዊ የተጠቃሚ ልምድ ዙሪያ የተሰራ የዲጂታል ምርት ሙከራ።",
     },
     stack: "Web · TypeScript · UI/UX",
-    href: "https://github.com/isakhu/Metoriya",
-    image: "/project-ecotrack.png",
+    github: "https://github.com/isakhu/Metoriya",
+    image: "https://opengraph.githubassets.com/1/isakhu/Metoriya",
   },
   {
     title: "Happy Bingo",
@@ -61,8 +75,8 @@ const projects = [
       am: "በWindows ላይ ያለ ኢንተርኔት የሚሰራ የBingo አስተዳደር ሶፍትዌር፣ አውቶማቲክ ጥሪ፣ ማረጋገጫ፣ TV ማሳያ እና የጨዋታ ሂሳብን ያካትታል።",
     },
     stack: "Electron · React · TypeScript",
-    href: "https://github.com/isakhu/happy-bingo",
-    image: "/project-planner.png",
+    github: "https://github.com/isakhu/happy-bingo",
+    image: "https://opengraph.githubassets.com/1/isakhu/happy-bingo",
   },
   {
     title: "Tule Resort",
@@ -72,8 +86,9 @@ const projects = [
       am: "ሜኑ፣ ክፍሎች፣ አገልግሎቶች፣ ትዕዛዞች እና የሰራተኞች ስራ ሂደቶችን የሚያካትት ዲጂታል የሪዞርት ልምድ።",
     },
     stack: "Next.js · Supabase · TypeScript",
-    href: "https://github.com/isakhu/Tule-Resort",
-    image: "/project-codevault.png",
+    live: "https://tule-resort.vercel.app/",
+    github: "https://github.com/isakhu/Tule-Resort",
+    image: screenshot("https://tule-resort.vercel.app/"),
   },
   {
     title: "Hawassa Tabor School",
@@ -83,8 +98,21 @@ const projects = [
       am: "ለትምህርት ቤት አስተዳደር፣ የትምህርት ስራ ሂደቶች፣ ተጠቃሚዎች እና ሚና-ተኮር አስተዳደር የተሰራ መድረክ።",
     },
     stack: "Next.js · PostgreSQL · TypeScript",
-    href: "https://hawassa-tabor-school.vercel.app",
-    image: "/project-devcollab.png",
+    live: "https://hawassa-tabor-school.vercel.app/",
+    github: "https://github.com/isakhu/hawassa-tabor-school",
+    image: screenshot("https://hawassa-tabor-school.vercel.app/"),
+  },
+  {
+    title: "YZAK Luxury Brand",
+    category: { en: "E-Commerce / Fashion", am: "ኢ-ኮሜርስ / ፋሽን" },
+    description: {
+      en: "A luxury fashion storefront focused on premium presentation, product browsing, and brand identity.",
+      am: "በፕሪሚየም አቀራረብ፣ የምርት አሰሳ እና የብራንድ ማንነት ላይ የተተኮረ የሎግዠሪ ፋሽን መደብር።",
+    },
+    stack: "Next.js · TypeScript · E-Commerce",
+    live: "https://yzak-luxury-brand.vercel.app/",
+    github: "https://github.com/isakhu/yzak-luxury-brand",
+    image: screenshot("https://yzak-luxury-brand.vercel.app/"),
   },
 ];
 
@@ -123,7 +151,9 @@ const copy = {
     workEyebrow: "SELECTED WORK",
     workTitle: "Things I’ve built.",
     workLead: "From product ideas to working systems, these are projects I’ve built while growing as an engineer.",
-    allProjects: "View all projects on GitHub",
+    allProjects: "See all projects on GitHub",
+    liveDemo: "Live demo",
+    sourceCode: "Source code",
     aboutEyebrow: "ABOUT ME",
     aboutTitle: "Engineer with a builder’s mindset.",
     about1: "I enjoy turning ideas into useful software. My work sits between engineering, product thinking, and interface design — from the first sketch to deployment.",
@@ -161,6 +191,8 @@ const copy = {
     workTitle: "የገነባኋቸው ነገሮች።",
     workLead: "ከምርት ሀሳቦች እስከ ሙሉ ስርዓቶች፣ በኢንጂነርነት ልምዴን እያሳደግሁ የገነባኋቸው ፕሮጀክቶች ናቸው።",
     allProjects: "ሁሉንም ፕሮጀክቶች በGitHub ይመልከቱ",
+    liveDemo: "የቀጥታ ማሳያ",
+    sourceCode: "የምንጭ ኮድ",
     aboutEyebrow: "ስለእኔ",
     aboutTitle: "በመገንባት አስተሳሰብ የሚሰራ ኢንጂነር።",
     about1: "ሀሳቦችን ወደ ጠቃሚ ሶፍትዌር መቀየር እወዳለሁ። ስራዬ በኢንጂነሪንግ፣ በምርት አስተሳሰብ እና በUI/UX ዲዛይን መካከል ይገኛል።",
@@ -251,10 +283,28 @@ export default function Home() {
         <div className="section-intro"><p className="eyebrow">{t.workEyebrow}</p><h2>{t.workTitle}</h2><p>{t.workLead}</p></div>
         <div className="work-grid">
           {projects.map((project, index) => (
-            <a key={project.title} href={project.href} target="_blank" rel="noopener noreferrer" className={`work-card ${index === 0 ? "featured" : ""}`}>
-              <div className="work-image"><Image src={project.image} alt={project.title} fill sizes="(max-width: 800px) 100vw, 50vw" className="cover-image" /><span className="project-index">0{index + 1}</span></div>
-              <div className="work-info"><div><span className="category">{project.category[language]}</span><h3>{project.title}</h3></div><ArrowUpRight className="card-arrow" size={20} /><p>{project.description[language]}</p><span className="stack">{project.stack}</span></div>
-            </a>
+            <article key={project.title} className={`work-card ${index === 0 ? "featured" : ""}`}>
+              <div className="work-image">
+                <img
+                  src={project.image}
+                  alt={`${project.title} project preview`}
+                  className="cover-image"
+                  style={{ width: "100%", height: "100%", display: "block" }}
+                  loading={index === 0 ? "eager" : "lazy"}
+                />
+                <span className="project-index">{String(index + 1).padStart(2, "0")}</span>
+              </div>
+              <div className="work-info">
+                <div><span className="category">{project.category[language]}</span><h3>{project.title}</h3></div>
+                <ArrowUpRight className="card-arrow" size={20} />
+                <p>{project.description[language]}</p>
+                <div style={{ gridColumn: "1 / -1", display: "flex", flexWrap: "wrap", gap: "18px", marginTop: "7px" }}>
+                  {project.live && <a className="text-link" href={project.live} target="_blank" rel="noopener noreferrer">{t.liveDemo} <ArrowUpRight size={14} /></a>}
+                  <a className="text-link" href={project.github} target="_blank" rel="noopener noreferrer">{t.sourceCode} <Code2 size={14} /></a>
+                </div>
+                <span className="stack">{project.stack}</span>
+              </div>
+            </article>
           ))}
         </div>
         <a className="all-work" href="https://github.com/isakhu" target="_blank" rel="noopener noreferrer">{t.allProjects} <ArrowUpRight size={16} /></a>
@@ -279,11 +329,23 @@ export default function Home() {
 
       <section id="contact" className="contact-section section-wrap">
         <div className="contact-main"><p className="eyebrow">{t.contactEyebrow}</p><h2>{t.contactTitle}</h2><a href="mailto:yishakhak@gmail.com" className="contact-button">{t.getInTouch} <ArrowUpRight size={18} /></a></div>
-        <div className="contact-details"><div><Mail size={17} /><span>EMAIL</span><a href="mailto:yishakhak@gmail.com">yishakhak@gmail.com</a></div><div><MapPin size={17} /><span>{t.location}</span><p>Hawassa, Ethiopia</p></div></div>
+        <div className="contact-details">
+          <div><Mail size={17} /><span>EMAIL</span><a href="mailto:yishakhak@gmail.com">yishakhak@gmail.com</a></div>
+          <div><MapPin size={17} /><span>{t.location}</span><p>Hawassa, Ethiopia</p></div>
+        </div>
       </section>
 
       <footer className="footer">
-        <div className="footer-top"><span className="brand">YZAK<span>.</span></span><p>{t.footer}</p><div className="socials"><a href="https://github.com/isakhu" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><Code2 size={18} /></a><a href="https://www.linkedin.com/in/yishak-tule" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><Globe2 size={18} /></a><a href="mailto:yishakhak@gmail.com" aria-label="Email"><Mail size={18} /></a></div></div>
+        <div className="footer-top">
+          <span className="brand">YZAK<span>.</span></span>
+          <p>{t.footer}</p>
+          <div className="socials">
+            <a href="https://github.com/isakhu" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><Code2 size={18} /></a>
+            <a href="https://www.linkedin.com/in/yishak-tule" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><Globe2 size={18} /></a>
+            <a href="https://t.me/yzak_22" target="_blank" rel="noopener noreferrer" aria-label="Telegram"><BriefcaseBusiness size={18} /></a>
+            <a href="mailto:yishakhak@gmail.com" aria-label="Email"><Mail size={18} /></a>
+          </div>
+        </div>
         <div className="footer-bottom"><span>© {new Date().getFullYear()} Yishak Tule</span><span>Hawassa · Ethiopia</span></div>
       </footer>
 
