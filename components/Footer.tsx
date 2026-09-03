@@ -1,4 +1,4 @@
-import { ArrowUp, Code2, Github, Linkedin, Mail, MessageCircle } from "lucide-react";
+import { ArrowUp, Code2, ExternalLink, Mail, MessageCircle } from "lucide-react";
 
 const links = [
   { label: "Home", href: "#hero" },
@@ -9,8 +9,8 @@ const links = [
 ];
 
 const socials = [
-  { icon: Github, href: "https://github.com/isakhu", label: "GitHub" },
-  { icon: Linkedin, href: "https://www.linkedin.com/in/yishak-tule", label: "LinkedIn" },
+  { icon: Code2, href: "https://github.com/isakhu", label: "GitHub" },
+  { icon: ExternalLink, href: "https://www.linkedin.com/in/yishak-tule", label: "LinkedIn" },
   { icon: MessageCircle, href: "https://t.me/yzak_22", label: "Telegram" },
   { icon: Mail, href: "mailto:yishakhak@gmail.com", label: "Email" },
 ];
