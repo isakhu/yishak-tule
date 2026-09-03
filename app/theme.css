@@ -68,6 +68,14 @@ html, body { background: var(--paper); color: var(--ink); transition: background
 .footer { background: var(--soft); border-color: var(--line); }
 .footer-bottom { color: var(--muted); border-color: var(--line); }
 
+/* Keep every featured project visible in the two-column showcase. */
+.work-grid .work-card:nth-child(2),
+.work-grid .work-card:nth-child(3) { display: block !important; }
+
+/* Keep external brand marks readable against the dark theme. */
+:root[data-theme="dark"] .skill-icon,
+:root[data-theme="dark"] .social-icon { filter: invert(1); }
+
 @media (max-width: 900px) {
   .topbar { width: calc(100% - 28px); top: 14px; }
   .floating-nav { bottom: 12px; }
