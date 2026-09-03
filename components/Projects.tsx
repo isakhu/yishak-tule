@@ -1,7 +1,4 @@
-"use client";
-
-import { ExternalLink, Code2, Star } from "lucide-react";
-import { motion } from "framer-motion";
+import { ExternalLink, Code2 } from "lucide-react";
 import Image from "next/image";
 import SectionWrapper from "./SectionWrapper";
 import SectionHeading from "./SectionHeading";
@@ -9,203 +6,101 @@ import SectionHeading from "./SectionHeading";
 const projects = [
   {
     title: "Happy Bingo",
-    description:
-      "Offline Windows Bingo caller and management software for real-world paper Bingo games. Supports up to 100 cards, automatic number calling, card verification, prize calculations, printing, and administrator-protected card management.",
+    description: "Offline Windows Bingo management software with automated number calling, up to 100 cards, claim verification, prize calculations, printing, and protected card management.",
     tech: ["Electron", "React", "TypeScript", "Vite"],
     github: "https://github.com/isakhu/happy-bingo",
     demo: "https://github.com/isakhu/happy-bingo",
-    featured: true,
-    badge: "Featured",
-    badgeColor: "text-blue-400 bg-blue-500/10 border-blue-500/20",
-    border: "border-blue-500/30",
     image: "https://image.thum.io/get/width/1200/https://github.com/isakhu/happy-bingo",
   },
   {
     title: "Tule Resort",
-    description:
-      "Luxury resort guest experience and menu ordering platform for Tule Resort, Hawassa. Includes visual menus, persistent cart, Supabase-powered orders, rooms and services, plus admin and staff workflows.",
+    description: "Luxury resort guest experience and ordering platform with visual menus, persistent cart, Supabase data, room and service workflows, and staff administration.",
     tech: ["Next.js", "TypeScript", "Supabase", "Tailwind CSS"],
     github: "https://github.com/isakhu/Tule-Resort",
     demo: "https://github.com/isakhu/Tule-Resort",
-    featured: true,
-    badge: "Featured",
-    badgeColor: "text-emerald-400 bg-emerald-500/10 border-emerald-500/20",
-    border: "border-emerald-500/20",
     image: "https://image.thum.io/get/width/1200/https://github.com/isakhu/Tule-Resort",
   },
   {
     title: "Hawassa Tabor School",
-    description:
-      "Modern school management platform with role-based administration, academic workflows, student and teacher management, and a responsive web interface.",
+    description: "Modern school management platform covering role-based administration, academic workflows, student and teacher management, and responsive web interfaces.",
     tech: ["Next.js", "TypeScript", "PostgreSQL", "Tailwind CSS"],
     github: "https://github.com/isakhu/hawassa-tabor-school",
     demo: "https://hawassa-tabor-school.vercel.app",
-    featured: true,
-    badge: "Live",
-    badgeColor: "text-green-400 bg-green-500/10 border-green-500/20",
-    border: "border-green-500/20",
     image: "https://image.thum.io/get/width/1200/https://hawassa-tabor-school.vercel.app",
   },
   {
     title: "Yzak Luxury Brand",
-    description:
-      "Ethiopian luxury e-commerce platform featuring fine gold, diamonds, fashion, watches, handbags, and accessories. Built with a polished modern shopping experience.",
+    description: "Luxury e-commerce experience for fashion, watches, accessories, and premium products with a refined shopping interface.",
     tech: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"],
     github: "https://github.com/isakhu/yzak-luxury-brand",
     demo: "https://yzak-luxury-brand.vercel.app",
-    featured: true,
-    badge: "Live",
-    badgeColor: "text-yellow-400 bg-yellow-500/10 border-yellow-500/20",
-    border: "border-yellow-500/20",
     image: "https://image.thum.io/get/width/1200/https://yzak-luxury-brand.vercel.app",
   },
   {
     title: "Yzak Fashion Store",
-    description:
-      "Full-stack Ethiopian fashion e-commerce platform with product management, orders, and an admin dashboard. Designed for operations across Dire Dawa and Hawassa.",
+    description: "Full-stack fashion commerce platform with product management, orders, and operational admin workflows.",
     tech: ["FastAPI", "SQLAlchemy", "Python", "SQLite"],
     github: "https://github.com/isakhu/YZ-fashion-store",
     demo: "https://yzak-fashion-store-1.onrender.com",
-    featured: true,
-    badge: "Live",
-    badgeColor: "text-green-400 bg-green-500/10 border-green-500/20",
-    border: "border-green-500/20",
     image: "https://image.thum.io/get/width/1200/https://yzak-fashion-store-1.onrender.com",
   },
-  {
-    title: "Student Task Planner",
-    description:
-      "Student productivity application for organizing assignments, deadlines, priorities, and study schedules with progress tracking and task filtering.",
-    tech: ["Flask", "SQLAlchemy", "Python", "JavaScript"],
-    github: "https://github.com/isakhu/DDU-Student-task-planner",
-    demo: "https://student-task-planner-6kkd.onrender.com",
-    featured: false,
-    badge: "Live",
-    badgeColor: "text-cyan-400 bg-cyan-500/10 border-cyan-500/20",
-    border: "border-cyan-500/20",
-    image: "https://image.thum.io/get/width/1200/https://student-task-planner-6kkd.onrender.com",
-  },
-  {
-    title: "Personal Portfolio",
-    description:
-      "Modern developer portfolio built with Next.js and Framer Motion, featuring smooth animations, glassmorphism styling, responsive layouts, and interactive sections.",
-    tech: ["Next.js", "Tailwind CSS", "Framer Motion", "TypeScript"],
-    github: "https://github.com/isakhu/yishak-tule",
-    demo: "https://yishak-tule.vercel.app",
-    featured: false,
-    badge: "Live",
-    badgeColor: "text-indigo-400 bg-indigo-500/10 border-indigo-500/20",
-    image: "https://image.thum.io/get/width/1200/https://yishak-tule.vercel.app",
-  },
+];
+
+const moreProjects = [
+  { title: "Student Task Planner", href: "https://github.com/isakhu/DDU-Student-task-planner" },
+  { title: "Personal Portfolio", href: "https://github.com/isakhu/yishak-tule" },
 ];
 
 export default function Projects() {
   return (
     <SectionWrapper id="projects">
       <SectionHeading
-        label="What I've Built"
-        title="Featured Projects"
-        subtitle="A selection of real projects that showcase my skills across web development, full-stack systems, and desktop software."
+        label="Selected Work"
+        title="Projects Built for Real Use"
+        subtitle="Five projects that best represent my approach to product engineering, full-stack development, and software design."
       />
 
-      <div className="grid md:grid-cols-2 gap-6">
-        {projects.map((project, i) => (
-          <motion.div
-            key={project.title}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: i * 0.08 }}
-            whileHover={{ y: -8 }}
-            className={`group glass border ${project.border} rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-300 flex flex-col`}
-          >
-            <div className="relative h-48 overflow-hidden">
-              <Image
-                src={project.image}
-                alt={project.title}
-                fill
-                className="object-cover group-hover:scale-105 transition-transform duration-500"
-                sizes="(max-width: 768px) 100vw, 50vw"
-                unoptimized
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
-              <div className="absolute top-3 left-3">
-                <span className={`px-2.5 py-1 rounded-full text-xs font-medium border backdrop-blur-sm ${project.badgeColor}`}>
-                  {project.badge}
-                </span>
-              </div>
-              {project.featured && (
-                <div className="absolute top-3 right-3">
-                  <Star size={14} className="text-yellow-400 fill-yellow-400" />
-                </div>
-              )}
+      <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+        {projects.map((project, index) => (
+          <article key={project.title} className={`group overflow-hidden rounded-2xl border border-white/8 bg-[#111111] ${index === 0 ? "lg:col-span-2" : ""}`}>
+            <div className={`${index === 0 ? "h-56" : "h-44"} relative overflow-hidden bg-[#0d0d0d]`}>
+              <Image src={project.image} alt={project.title} fill className="object-cover transition-transform duration-500 group-hover:scale-[1.03]" sizes="(max-width: 768px) 100vw, 50vw" unoptimized />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#050505]/90 to-transparent" />
+              <span className="absolute left-4 top-4 rounded-full border border-[#c9a24d]/30 bg-[#050505]/75 px-3 py-1 text-[10px] font-medium uppercase tracking-[0.16em] text-[#e0c47a] backdrop-blur">
+                {index < 3 ? "Featured" : "Selected"}
+              </span>
             </div>
 
-            <div className="p-6 flex flex-col flex-1">
-              <h3 className="text-white font-bold text-lg mb-3 group-hover:text-indigo-300 transition-colors">
-                {project.title}
-              </h3>
-              <p className="text-zinc-500 text-sm leading-relaxed mb-5 flex-1">
-                {project.description}
-              </p>
-              <div className="flex flex-wrap gap-2 mb-5">
-                {project.tech.map((t) => (
-                  <span
-                    key={t}
-                    className="px-2 py-1 rounded-md bg-white/5 text-zinc-400 text-xs font-mono border border-white/5"
-                  >
-                    {t}
-                  </span>
-                ))}
+            <div className="flex h-full flex-col p-5">
+              <h3 className="font-display text-xl text-[#f5f5f2]">{project.title}</h3>
+              <p className="mt-2 text-sm leading-6 text-[#8c8c88]">{project.description}</p>
+              <div className="mt-4 flex flex-wrap gap-2">
+                {project.tech.map((tech) => <span key={tech} className="rounded-md border border-white/8 px-2 py-1 text-[10px] text-[#b0b0aa]">{tech}</span>)}
               </div>
-              <div className="flex items-center gap-3 pt-4 border-t border-white/5">
-                <motion.a
-                  href={project.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
-                  className="flex items-center gap-1.5 text-zinc-400 hover:text-white text-sm transition-colors"
-                >
-                  <Code2 size={15} />
-                  <span>Code</span>
-                </motion.a>
-                <motion.a
-                  href={project.demo}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
-                  className="flex items-center gap-1.5 text-zinc-400 hover:text-indigo-400 text-sm transition-colors ml-auto"
-                >
-                  <ExternalLink size={15} />
-                  <span>{project.demo.startsWith("https://github.com") ? "View Project" : "Live Demo"}</span>
-                </motion.a>
+              <div className="mt-5 flex items-center border-t border-white/8 pt-4">
+                <a href={project.github} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-xs font-medium text-[#b0b0aa] hover:text-[#f5f5f2]">
+                  <Code2 size={14} /> Code
+                </a>
+                <a href={project.demo} target="_blank" rel="noopener noreferrer" className="ml-auto inline-flex items-center gap-2 text-xs font-medium text-[#c9a24d] hover:text-[#e0c47a]">
+                  <ExternalLink size={14} /> {project.demo.startsWith("https://github.com") ? "View Project" : "Live Demo"}
+                </a>
               </div>
             </div>
-          </motion.div>
+          </article>
         ))}
       </div>
 
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ delay: 0.5 }}
-        className="text-center mt-12"
-      >
-        <motion.a
-          href="https://github.com/isakhu"
-          target="_blank"
-          rel="noopener noreferrer"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          className="inline-flex items-center gap-2 px-6 py-3 rounded-xl glass border border-white/10 text-zinc-300 hover:text-white hover:border-indigo-500/40 transition-all duration-200 font-medium"
-        >
-          <Code2 size={18} />
-          View All on GitHub
-        </motion.a>
-      </motion.div>
+      <div className="mt-8 border-t border-white/8 pt-6">
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+          <span className="text-xs uppercase tracking-[0.2em] text-[#6f6f6a]">More Projects</span>
+          <div className="flex flex-wrap gap-4">
+            {moreProjects.map((project) => (
+              <a key={project.title} href={project.href} target="_blank" rel="noopener noreferrer" className="text-sm text-[#b0b0aa] transition-colors hover:text-[#c9a24d]">{project.title} ↗</a>
+            ))}
+            <a href="https://github.com/isakhu" target="_blank" rel="noopener noreferrer" className="text-sm font-medium text-[#c9a24d] hover:text-[#e0c47a]">GitHub ↗</a>
+          </div>
+        </div>
+      </div>
     </SectionWrapper>
   );
 }
