@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Playfair_Display } from "next/font/google";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -12,15 +12,20 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const playfair = Playfair_Display({
+  variable: "--font-display",
+  subsets: ["latin"],
+});
+
 export const metadata: Metadata = {
-  title: "Yishak Tule | YZAK — Software Engineer & Full Stack Developer",
+  title: "Yishak Tule | YZAK — Software Engineer | Full-Stack Developer",
   description:
-    "Yishak Tule (YZAK) is a Software Engineer and Full Stack Developer from Ethiopia, specializing in React, Next.js, Node.js, and modern web applications.",
+    "Yishak Tule (YZAK) is a Software Engineer and Full-Stack Developer from Ethiopia, building modern web applications, full-stack systems, and software products.",
   keywords: [
     "Yishak Tule",
     "YZAK",
     "Software Engineer",
-    "Full Stack Developer",
+    "Full-Stack Developer",
     "React Developer",
     "Next.js",
     "Ethiopia",
@@ -31,16 +36,16 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    title: "Yishak Tule | YZAK — Software Engineer & Full Stack Developer",
+    title: "Yishak Tule | YZAK — Software Engineer | Full-Stack Developer",
     description:
-      "Software Engineer and Full Stack Developer from Ethiopia building scalable web applications and modern digital experiences.",
+      "Software Engineer and Full-Stack Developer building modern digital products and reliable software systems.",
     siteName: "YZAK Portfolio",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Yishak Tule | YZAK — Software Engineer & Full Stack Developer",
+    title: "Yishak Tule | YZAK — Software Engineer | Full-Stack Developer",
     description:
-      "Software Engineer and Full Stack Developer from Ethiopia building scalable web applications.",
+      "Software Engineer and Full-Stack Developer building modern software products.",
   },
   robots: {
     index: true,
@@ -56,9 +61,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} ${playfair.variable} h-full antialiased`}
     >
-      <body className="min-h-full bg-[#f4f3ef] text-[#111111] overflow-x-hidden">
+      <body className="min-h-full bg-[#050505] text-white overflow-x-hidden">
         {children}
       </body>
     </html>
