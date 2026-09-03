@@ -5,7 +5,7 @@ import {
   ArrowUpRight,
   Code2,
   Globe2,
-  Home,
+  Home as HomeIcon,
   Mail,
   MapPin,
   Moon,
@@ -350,7 +350,7 @@ export default function Home() {
       </footer>
 
       <nav className="floating-nav" aria-label="Primary navigation">
-        <button className={active === "home" ? "active" : ""} onClick={() => navigate("home")} aria-label={t.navHome}><Home size={17} /><span>{t.navHome}</span></button>
+        <button className={active === "home" ? "active" : ""} onClick={() => navigate("home")} aria-label={t.navHome}><HomeIcon size={17} /><span>{t.navHome}</span></button>
         <button className={active === "work" ? "active" : ""} onClick={() => navigate("work")} aria-label={t.navWork}><BriefcaseBusiness size={17} /><span>{t.navWork}</span></button>
         <button className={active === "about" ? "active" : ""} onClick={() => navigate("about")} aria-label={t.navAbout}><UserRound size={17} /><span>{t.navAbout}</span></button>
         <button className={active === "contact" ? "active" : ""} onClick={() => navigate("contact")} aria-label={t.navContact}><Mail size={17} /><span>{t.navContact}</span></button>
