@@ -6,16 +6,12 @@ interface SectionHeadingProps {
 
 export default function SectionHeading({ label, title, subtitle }: SectionHeadingProps) {
   return (
-    <div className="text-center mb-16">
-      <p className="text-indigo-400 font-mono text-xs tracking-[0.3em] uppercase mb-3">{label}</p>
-      <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-4 leading-tight">
+    <div className="mb-9 max-w-3xl">
+      <p className="mb-2 font-mono text-[10px] uppercase tracking-[0.28em] text-[var(--accent)]">{label}</p>
+      <h2 className="font-display text-3xl font-medium leading-tight tracking-[-0.02em] text-[var(--foreground)] sm:text-4xl md:text-[2.8rem]">
         {title}
       </h2>
-      {subtitle && (
-        <p className="text-zinc-500 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
-          {subtitle}
-        </p>
-      )}
+      {subtitle && <p className="mt-3 max-w-2xl text-sm leading-6 text-[var(--muted)] sm:text-base">{subtitle}</p>}
     </div>
   );
 }
