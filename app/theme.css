@@ -1,0 +1,82 @@
+:root {
+  --paper: #f4f1ea;
+  --ink: #121212;
+  --muted: #77746e;
+  --line: rgba(18,18,18,.14);
+  --soft: #e9e5dc;
+  --accent: #9a6b3f;
+  --dock: rgba(244,241,234,.9);
+  --shadow: 0 16px 48px rgba(18,18,18,.12);
+}
+
+:root[data-theme="dark"] {
+  --paper: #0d0d0c;
+  --ink: #f4f1ea;
+  --muted: #aaa69d;
+  --line: rgba(244,241,234,.14);
+  --soft: #171716;
+  --accent: #d5a675;
+  --dock: rgba(20,20,19,.9);
+  --shadow: 0 16px 48px rgba(0,0,0,.35);
+}
+
+html, body { background: var(--paper); color: var(--ink); transition: background-color .25s ease, color .25s ease; }
+.site-shell { min-height: 100vh; background: var(--paper) !important; color: var(--ink); padding-bottom: 105px; }
+.topbar {
+  position: fixed; z-index: 60; top: 18px; left: 50%; transform: translateX(-50%);
+  width: min(1180px, calc(100% - 48px)); display: flex; align-items: center; justify-content: space-between;
+  pointer-events: none;
+}
+.topbar .brand, .top-actions { pointer-events: auto; }
+.brand { color: var(--ink); }
+.top-actions { display: flex; gap: 7px; }
+.control-button {
+  display: inline-flex; align-items: center; justify-content: center; gap: 7px; min-width: 42px; height: 40px; padding: 0 12px;
+  border: 1px solid var(--line); border-radius: 999px; background: var(--dock); color: var(--ink);
+  backdrop-filter: blur(18px); box-shadow: var(--shadow); cursor: pointer; font-size: 11px; font-weight: 700;
+  transition: transform .2s ease, border-color .2s ease;
+}
+.control-button:hover { transform: translateY(-2px); border-color: var(--accent); }
+
+/* The navigation is intentionally a floating bottom dock, not a top nav. */
+.floating-nav {
+  position: fixed; z-index: 70; left: 50%; bottom: 20px; transform: translateX(-50%);
+  display: flex; align-items: center; gap: 5px; padding: 7px;
+  border: 1px solid var(--line); border-radius: 999px; background: var(--dock);
+  backdrop-filter: blur(20px); box-shadow: var(--shadow);
+}
+.floating-nav button {
+  display: inline-flex; align-items: center; gap: 7px; min-width: 44px; height: 42px; padding: 0 13px;
+  border: 0; border-radius: 999px; background: transparent; color: var(--muted); cursor: pointer;
+  font-size: 11px; font-weight: 700; transition: background-color .2s ease, color .2s ease, transform .2s ease;
+}
+.floating-nav button:hover { color: var(--ink); transform: translateY(-1px); }
+.floating-nav button.active { background: var(--ink); color: var(--paper); }
+
+.hero-section h1, h2 { color: var(--ink); }
+.hero-lede, .about-text p, .work-info p, .portrait-note p, .footer-top p { color: var(--muted); }
+.marquee-strip { background: var(--soft); border-color: var(--line); }
+.marquee-strip span { color: var(--muted); }
+.project-index { background: var(--paper); color: var(--ink); }
+.work-image, .portrait-frame { background: var(--soft); }
+.work-info, .facts, .skills-list, .portrait-note, .about-section { border-color: var(--line); }
+.work-info h3, .facts strong, .skills-list span { color: var(--ink); }
+.contact-section { background: var(--ink); color: var(--paper); }
+.contact-section .eyebrow { color: var(--accent); }
+.contact-details span { color: var(--muted); }
+.contact-details a, .contact-details p { color: var(--paper); }
+.footer { background: var(--soft); border-color: var(--line); }
+.footer-bottom { color: var(--muted); border-color: var(--line); }
+
+@media (max-width: 900px) {
+  .topbar { width: calc(100% - 28px); top: 14px; }
+  .floating-nav { bottom: 12px; }
+}
+
+@media (max-width: 560px) {
+  .site-shell { padding-bottom: 92px; }
+  .floating-nav { width: calc(100% - 24px); justify-content: space-between; }
+  .floating-nav button { flex: 1; justify-content: center; padding: 0 8px; min-width: 0; }
+  .floating-nav button span { display: none; }
+  .floating-nav button.active span { display: inline; }
+}
