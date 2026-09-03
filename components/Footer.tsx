@@ -1,132 +1,49 @@
-"use client";
+import { ArrowUp, Code2, Github, Linkedin, Mail, MessageCircle } from "lucide-react";
 
-import { motion } from "framer-motion";
-import { Mail, Code2, Heart, ArrowUp, Globe, Terminal, MessageCircle } from "lucide-react";
-
-const footerLinks = [
+const links = [
+  { label: "Home", href: "#hero" },
   { label: "About", href: "#about" },
-  { label: "Skills", href: "#skills" },
   { label: "Projects", href: "#projects" },
   { label: "Experience", href: "#experience" },
-  { label: "Services", href: "#services" },
-  { label: "Blog", href: "#blog" },
   { label: "Contact", href: "#contact" },
 ];
 
 const socials = [
-  { icon: Code2, href: "https://github.com/isakhu", label: "GitHub" },
-  { icon: Globe, href: "https://www.linkedin.com/in/yishak-tule", label: "LinkedIn" },
+  { icon: Github, href: "https://github.com/isakhu", label: "GitHub" },
+  { icon: Linkedin, href: "https://www.linkedin.com/in/yishak-tule", label: "LinkedIn" },
   { icon: MessageCircle, href: "https://t.me/yzak_22", label: "Telegram" },
   { icon: Mail, href: "mailto:yishakhak@gmail.com", label: "Email" },
 ];
 
 export default function Footer() {
-  const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
-
-  const handleNavClick = (href: string) => {
-    const id = href.replace("#", "");
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-  };
-
   return (
-    <footer className="relative border-t border-white/5 bg-black/20">
-      {/* Glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-px bg-gradient-to-r from-transparent via-indigo-500/50 to-transparent" />
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid md:grid-cols-3 gap-10 mb-12">
-          {/* Brand */}
-          <div className="space-y-4">
+    <footer className="border-t border-white/8 bg-[#050505]">
+      <div className="mx-auto max-w-6xl px-5 py-8 sm:px-8">
+        <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
+          <div>
             <div className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center">
-                <Code2 size={16} className="text-white" />
-              </div>
-              <span className="font-bold text-lg tracking-wider gradient-text">YZAK</span>
+              <div className="flex h-8 w-8 items-center justify-center rounded-md bg-[#c9a24d] text-[#050505]"><Code2 size={15} /></div>
+              <span className="text-sm font-black tracking-[0.2em] text-[#f5f5f2]">YZAK</span>
             </div>
-            <p className="text-zinc-500 text-sm leading-relaxed max-w-xs">
-              Software Engineer & Full Stack Developer building modern digital experiences from Ethiopia.
-            </p>
-            <div className="flex gap-3">
-              {socials.map(({ icon: Icon, href, label }) => (
-                <motion.a
-                  key={label}
-                  href={href}
-                  target={href.startsWith("http") ? "_blank" : undefined}
-                  rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
-                  aria-label={label}
-                  whileHover={{ scale: 1.15, y: -2 }}
-                  whileTap={{ scale: 0.9 }}
-                  className="w-9 h-9 rounded-lg glass border border-white/10 flex items-center justify-center text-zinc-400 hover:text-indigo-400 hover:border-indigo-500/40 transition-colors duration-200"
-                >
-                  <Icon size={16} />
-                </motion.a>
-              ))}
-            </div>
+            <p className="mt-2 text-xs text-[#6f6f6a]">Software Engineer | Full-Stack Developer</p>
           </div>
 
-          {/* Navigation */}
-          <div>
-            <h4 className="text-white font-semibold text-sm mb-4">Navigation</h4>
-            <ul className="space-y-2">
-              {footerLinks.map((link) => (
-                <li key={link.href}>
-                  <button
-                    onClick={() => handleNavClick(link.href)}
-                    className="text-zinc-500 hover:text-indigo-400 text-sm transition-colors duration-200"
-                  >
-                    {link.label}
-                  </button>
-                </li>
-              ))}
-            </ul>
-          </div>
+          <nav className="flex flex-wrap gap-x-5 gap-y-2">
+            {links.map((link) => <a key={link.href} href={link.href} className="text-xs text-[#8c8c88] transition-colors hover:text-[#c9a24d]">{link.label}</a>)}
+          </nav>
 
-          {/* Contact */}
-          <div>
-            <h4 className="text-white font-semibold text-sm mb-4">Contact</h4>
-            <div className="space-y-3">
-              <a
-                href="mailto:yishakhak@gmail.com"
-                className="block text-zinc-500 hover:text-indigo-400 text-sm transition-colors"
-              >
-                yishakhak@gmail.com
+          <div className="flex items-center gap-2">
+            {socials.map(({ icon: Icon, href, label }) => (
+              <a key={label} href={href} target={href.startsWith("http") ? "_blank" : undefined} rel={href.startsWith("http") ? "noopener noreferrer" : undefined} aria-label={label} className="flex h-8 w-8 items-center justify-center rounded-md border border-white/8 text-[#8c8c88] transition-colors hover:border-[#c9a24d]/40 hover:text-[#c9a24d]">
+                <Icon size={14} />
               </a>
-              <a
-                href="https://github.com/isakhu"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block text-zinc-500 hover:text-indigo-400 text-sm transition-colors"
-              >
-                github.com/isakhu
-              </a>
-              <p className="text-zinc-600 text-sm">Ethiopia 🇪🇹</p>
-            </div>
-
-            <div className="mt-6">
-              <div className="flex items-center gap-2 text-xs text-zinc-600">
-                <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-                Available for opportunities
-              </div>
-            </div>
+            ))}
+            <button onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} aria-label="Back to top" className="ml-1 flex h-8 w-8 items-center justify-center rounded-md border border-white/8 text-[#8c8c88] transition-colors hover:border-[#c9a24d]/40 hover:text-[#c9a24d]"><ArrowUp size={14} /></button>
           </div>
         </div>
-
-        {/* Bottom bar */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-8 border-t border-white/5">
-          <p className="text-zinc-600 text-sm flex items-center gap-1.5">
-            © 2026 YZAK. All rights reserved. Made with{" "}
-            <Heart size={12} className="text-red-500 fill-red-500" /> in Ethiopia
-          </p>
-
-          <motion.button
-            onClick={scrollToTop}
-            whileHover={{ scale: 1.1, y: -2 }}
-            whileTap={{ scale: 0.9 }}
-            className="w-9 h-9 rounded-lg glass border border-white/10 flex items-center justify-center text-zinc-400 hover:text-indigo-400 hover:border-indigo-500/40 transition-colors duration-200"
-            aria-label="Scroll to top"
-          >
-            <ArrowUp size={16} />
-          </motion.button>
+        <div className="mt-7 flex flex-col gap-2 border-t border-white/8 pt-5 text-[11px] text-[#5f5f5b] sm:flex-row sm:items-center sm:justify-between">
+          <span>© 2026 YZAK. All rights reserved.</span>
+          <span>Built with care in Ethiopia.</span>
         </div>
       </div>
     </footer>
