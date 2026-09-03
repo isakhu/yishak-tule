@@ -30,8 +30,10 @@ type Project = {
 const screenshot = (url: string) =>
   `https://image.thum.io/get/width/1400/crop/820/noanimate/${url}`;
 
-const brandIcon = (slug: string, color = "121212") =>
-  `https://cdn.simpleicons.org/${slug}/${color}`;
+const siteSnapshot = (url: string) =>
+  `https://s.wordpress.com/mshots/v1/${encodeURIComponent(url)}?w=1400`;
+
+const brandIcon = (slug: string) => `https://cdn.simpleicons.org/${slug}`;
 
 const projects: Project[] = [
   {
@@ -77,7 +79,7 @@ const projects: Project[] = [
     },
     stack: "Electron · React · TypeScript",
     github: "https://github.com/isakhu/happy-bingo",
-    image: "https://opengraph.githubassets.com/1/isakhu/happy-bingo",
+    image: "https://i.etsystatic.com/42134370/r/il/c6fc38/5014518999/il_fullxfull.5014518999_f5ga.jpg",
   },
   {
     title: "Tule Resort",
@@ -89,7 +91,7 @@ const projects: Project[] = [
     stack: "Next.js · Supabase · TypeScript",
     live: "https://tule-resort.vercel.app/",
     github: "https://github.com/isakhu/Tule-Resort",
-    image: screenshot("https://tule-resort.vercel.app/"),
+    image: siteSnapshot("https://tule-resort.vercel.app/"),
   },
   {
     title: "Hawassa Tabor School",
@@ -336,7 +338,7 @@ export default function Home() {
             <span key={skill.name}>
               <small>{String(i + 1).padStart(2, "0")}</small>
               <img className="skill-icon" src={brandIcon(skill.icon)} alt={`${skill.name} logo`} width={22} height={22} loading="lazy" />
-              <span className="skill-name">{skill.name}</span>
+              <strong className="skill-name">{skill.name}</strong>
             </span>
           ))}
         </div>
@@ -357,7 +359,7 @@ export default function Home() {
           <div className="socials">
             {socialLinks.map((social) => (
               <a key={social.label} href={social.href} target="_blank" rel="noopener noreferrer" aria-label={social.label} title={social.label}>
-                <img className="social-icon" src={brandIcon(social.icon, "f4f1ea")} alt="" width={17} height={17} />
+                <img className="social-icon" src={brandIcon(social.icon)} alt="" width={17} height={17} />
               </a>
             ))}
             <a href="mailto:yishakhak@gmail.com" aria-label="Email" title="Email"><Mail size={17} /></a>
