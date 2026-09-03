@@ -8,11 +8,50 @@ import SectionHeading from "./SectionHeading";
 
 const projects = [
   {
+    title: "Happy Bingo",
+    description:
+      "Offline Windows Bingo caller and management software for real-world paper Bingo games. Supports up to 100 cards, automatic number calling, card verification, prize calculations, printing, and administrator-protected card management.",
+    tech: ["Electron", "React", "TypeScript", "Vite"],
+    github: "https://github.com/isakhu/happy-bingo",
+    demo: "https://github.com/isakhu/happy-bingo",
+    featured: true,
+    badge: "Featured",
+    badgeColor: "text-blue-400 bg-blue-500/10 border-blue-500/20",
+    border: "border-blue-500/30",
+    image: "https://image.thum.io/get/width/1200/https://github.com/isakhu/happy-bingo",
+  },
+  {
+    title: "Tule Resort",
+    description:
+      "Luxury resort guest experience and menu ordering platform for Tule Resort, Hawassa. Includes visual menus, persistent cart, Supabase-powered orders, rooms and services, plus admin and staff workflows.",
+    tech: ["Next.js", "TypeScript", "Supabase", "Tailwind CSS"],
+    github: "https://github.com/isakhu/Tule-Resort",
+    demo: "https://github.com/isakhu/Tule-Resort",
+    featured: true,
+    badge: "Featured",
+    badgeColor: "text-emerald-400 bg-emerald-500/10 border-emerald-500/20",
+    border: "border-emerald-500/20",
+    image: "https://image.thum.io/get/width/1200/https://github.com/isakhu/Tule-Resort",
+  },
+  {
+    title: "Hawassa Tabor School",
+    description:
+      "Modern school management platform with role-based administration, academic workflows, student and teacher management, and a responsive web interface.",
+    tech: ["Next.js", "TypeScript", "PostgreSQL", "Tailwind CSS"],
+    github: "https://github.com/isakhu/hawassa-tabor-school",
+    demo: "https://hawassa-tabor-school.vercel.app",
+    featured: true,
+    badge: "Live",
+    badgeColor: "text-green-400 bg-green-500/10 border-green-500/20",
+    border: "border-green-500/20",
+    image: "https://image.thum.io/get/width/1200/https://hawassa-tabor-school.vercel.app",
+  },
+  {
     title: "Yzak Luxury Brand",
     description:
-      "Ethiopia's premier luxury e-commerce platform featuring fine gold, diamonds, fashion, watches, handbags, and accessories. Built with Next.js and Tailwind CSS.",
+      "Ethiopian luxury e-commerce platform featuring fine gold, diamonds, fashion, watches, handbags, and accessories. Built with a polished modern shopping experience.",
     tech: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"],
-    github: "https://github.com/isakhu",
+    github: "https://github.com/isakhu/yzak-luxury-brand",
     demo: "https://yzak-luxury-brand.vercel.app",
     featured: true,
     badge: "Live",
@@ -23,9 +62,9 @@ const projects = [
   {
     title: "Yzak Fashion Store",
     description:
-      "Full-stack Ethiopian fashion e-commerce platform with product management, orders, and admin dashboard. Branches in Dire Dawa and Hawassa.",
+      "Full-stack Ethiopian fashion e-commerce platform with product management, orders, and an admin dashboard. Designed for operations across Dire Dawa and Hawassa.",
     tech: ["FastAPI", "SQLAlchemy", "Python", "SQLite"],
-    github: "https://github.com/isakhu/yzak-fashion-store",
+    github: "https://github.com/isakhu/YZ-fashion-store",
     demo: "https://yzak-fashion-store-1.onrender.com",
     featured: true,
     badge: "Live",
@@ -36,11 +75,11 @@ const projects = [
   {
     title: "Student Task Planner",
     description:
-      "Productivity app for students to manage assignments, deadlines, and study schedules. Features task filtering, priority levels, and progress tracking.",
+      "Student productivity application for organizing assignments, deadlines, priorities, and study schedules with progress tracking and task filtering.",
     tech: ["Flask", "SQLAlchemy", "Python", "JavaScript"],
-    github: "https://github.com/isakhu/student-task-planer",
+    github: "https://github.com/isakhu/DDU-Student-task-planner",
     demo: "https://student-task-planner-6kkd.onrender.com",
-    featured: true,
+    featured: false,
     badge: "Live",
     badgeColor: "text-cyan-400 bg-cyan-500/10 border-cyan-500/20",
     border: "border-cyan-500/20",
@@ -49,28 +88,14 @@ const projects = [
   {
     title: "Personal Portfolio",
     description:
-      "A modern, dark-mode developer portfolio built with Next.js and Framer Motion. Features smooth animations, glassmorphism design, and a fully responsive layout.",
+      "Modern developer portfolio built with Next.js and Framer Motion, featuring smooth animations, glassmorphism styling, responsive layouts, and interactive sections.",
     tech: ["Next.js", "Tailwind CSS", "Framer Motion", "TypeScript"],
-    github: "https://github.com/isakhu",
+    github: "https://github.com/isakhu/yishak-tule",
     demo: "https://yishak-tule.vercel.app",
-    featured: true,
+    featured: false,
     badge: "Live",
     badgeColor: "text-indigo-400 bg-indigo-500/10 border-indigo-500/20",
-    border: "border-indigo-500/20",
     image: "https://image.thum.io/get/width/1200/https://yishak-tule.vercel.app",
-  },
-  {
-    title: "EduCore",
-    description:
-      "A full-stack school management platform with role-based dashboards, attendance tracking, grade management, and glassmorphism dark UI.",
-    tech: ["Next.js 14", "FastAPI", "PostgreSQL", "TypeScript", "Tailwind CSS"],
-    github: "https://github.com/isakhu/school-managment-system",
-    demo: "https://school-managment-system-flax.vercel.app",
-    featured: true,
-    badge: "Live",
-    badgeColor: "text-green-400 bg-green-500/10 border-green-500/20",
-    border: "border-green-500/20",
-    image: "https://api.microlink.io/?url=https://school-managment-system-flax.vercel.app&screenshot=true&meta=false&embed=screenshot.url",
   },
 ];
 
@@ -80,7 +105,7 @@ export default function Projects() {
       <SectionHeading
         label="What I've Built"
         title="Featured Projects"
-        subtitle="A selection of real, live projects that showcase my skills across the full stack."
+        subtitle="A selection of real projects that showcase my skills across web development, full-stack systems, and desktop software."
       />
 
       <div className="grid md:grid-cols-2 gap-6">
@@ -154,7 +179,7 @@ export default function Projects() {
                   className="flex items-center gap-1.5 text-zinc-400 hover:text-indigo-400 text-sm transition-colors ml-auto"
                 >
                   <ExternalLink size={15} />
-                  <span>Live Demo</span>
+                  <span>{project.demo.startsWith("https://github.com") ? "View Project" : "Live Demo"}</span>
                 </motion.a>
               </div>
             </div>
