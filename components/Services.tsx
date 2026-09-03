@@ -1,114 +1,38 @@
-"use client";
-
-import { motion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Code2, LayoutDashboard, PenTool, Server } from "lucide-react";
 import SectionWrapper from "./SectionWrapper";
 import SectionHeading from "./SectionHeading";
 
 const services = [
-  {
-    number: "01",
-    title: "Full Stack Development",
-    description:
-      "End-to-end web applications built with Next.js, React, and Node.js. Clean architecture, fast APIs, and production-ready code.",
-    tags: ["Next.js", "REST APIs", "PostgreSQL", "Vercel"],
-  },
-  {
-    number: "02",
-    title: "Frontend Engineering",
-    description:
-      "Pixel-perfect UIs with smooth animations and great performance. Every detail considered — from accessibility to Core Web Vitals.",
-    tags: ["React", "Tailwind CSS", "Framer Motion", "TypeScript"],
-  },
-  {
-    number: "03",
-    title: "UI/UX Design",
-    description:
-      "Interfaces that feel intuitive and look sharp. From wireframe to polished design system, focused on real user experience.",
-    tags: ["Figma", "Design Systems", "Prototyping", "Accessibility"],
-  },
-  {
-    number: "04",
-    title: "SaaS Products",
-    description:
-      "Scalable software products with auth, subscriptions, dashboards, and multi-tenancy. Built to grow from day one.",
-    tags: ["Auth", "Stripe", "Multi-tenancy", "Analytics"],
-  },
+  { icon: Code2, title: "Full-Stack Development", description: "End-to-end web applications with thoughtful frontend architecture, APIs, data flows, and deployment-ready implementation." },
+  { icon: LayoutDashboard, title: "Product & Dashboard Development", description: "Operational platforms, admin dashboards, management systems, and workflows designed around real users and business needs." },
+  { icon: PenTool, title: "Frontend & UI Engineering", description: "Responsive interfaces that balance visual quality, accessibility, performance, and maintainable component systems." },
+  { icon: Server, title: "Backend & Data Systems", description: "Reliable APIs and data-backed applications using practical backend technologies, databases, authentication, and integrations." },
 ];
 
 export default function Services() {
   return (
-    <SectionWrapper id="services">
+    <SectionWrapper id="services" className="border-t border-white/5">
       <SectionHeading
-        label="What I Offer"
-        title="Services"
-        subtitle="Focused on building things that work well, look great, and scale."
+        label="Services"
+        title="What I build for clients and teams."
+        subtitle="Focused services that match the kinds of products and systems represented in my work."
       />
 
-      <div className="divide-y divide-white/5">
-        {services.map((service, i) => (
-          <motion.div
-            key={service.title}
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4, delay: i * 0.07 }}
-            className="group flex flex-col sm:flex-row sm:items-start gap-4 py-8 hover:bg-white/[0.02] transition-colors duration-200 px-2 rounded-xl cursor-default"
-          >
-            <span className="text-zinc-600 text-xs font-mono pt-1 w-8 shrink-0">
-              {service.number}
-            </span>
-
-            <div className="flex-1 space-y-3">
-              <div className="flex items-center gap-2">
-                <h3 className="text-white font-semibold text-base group-hover:text-indigo-300 transition-colors duration-200">
-                  {service.title}
-                </h3>
-                <ArrowUpRight
-                  size={14}
-                  className="text-zinc-600 group-hover:text-indigo-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200"
-                />
+      <div className="grid gap-3 md:grid-cols-2">
+        {services.map(({ icon: Icon, title, description }, index) => (
+          <div key={title} className="group rounded-xl border border-white/8 bg-[#111111] p-5 transition-colors hover:border-[#c9a24d]/30">
+            <div className="flex items-start justify-between gap-4">
+              <div className="rounded-lg border border-[#c9a24d]/20 bg-[#c9a24d]/[0.07] p-2.5">
+                <Icon size={18} className="text-[#c9a24d]" />
               </div>
-              <p className="text-zinc-500 text-sm leading-relaxed max-w-xl">
-                {service.description}
-              </p>
-              <div className="flex flex-wrap gap-2 pt-1">
-                {service.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="px-2 py-0.5 rounded-md border border-white/5 text-zinc-500 text-[11px] font-mono bg-white/[0.03]"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
+              <span className="font-mono text-[10px] text-[#6f6f6a]">0{index + 1}</span>
             </div>
-          </motion.div>
+            <h3 className="mt-5 font-display text-xl text-[#f5f5f2]">{title}</h3>
+            <p className="mt-2 text-sm leading-6 text-[#8c8c88]">{description}</p>
+            <ArrowUpRight size={15} className="mt-5 text-[#6f6f6a] transition-colors group-hover:text-[#c9a24d]" />
+          </div>
         ))}
       </div>
-
-      {/* CTA */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ delay: 0.4 }}
-        className="mt-16 flex flex-col sm:flex-row items-center justify-between gap-6 glass border border-white/10 rounded-2xl px-8 py-7"
-      >
-        <div>
-          <p className="text-white font-semibold text-lg">Have a project in mind?</p>
-          <p className="text-zinc-500 text-sm mt-1">Let's build something great together.</p>
-        </div>
-        <motion.a
-          href="mailto:yishakhak@gmail.com"
-          whileHover={{ scale: 1.04 }}
-          whileTap={{ scale: 0.96 }}
-          className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-indigo-500 to-purple-600 text-white text-sm font-semibold shrink-0 transition-all duration-200"
-        >
-          Start a Project
-          <ArrowUpRight size={15} />
-        </motion.a>
-      </motion.div>
     </SectionWrapper>
   );
 }
