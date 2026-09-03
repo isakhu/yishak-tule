@@ -1,62 +1,43 @@
-"use client";
-
-import { motion } from "framer-motion";
+import {
+  Braces,
+  Database,
+  GitBranch,
+  Globe2,
+  Layers3,
+  Server,
+  TerminalSquare,
+  Workflow,
+} from "lucide-react";
 import SectionWrapper from "./SectionWrapper";
 import SectionHeading from "./SectionHeading";
 
-const techStack = [
-  {
-    category: "Frontend",
-    techs: ["React", "Next.js", "TypeScript", "Tailwind CSS", "HTML", "CSS"],
-  },
-  {
-    category: "Backend",
-    techs: ["Node.js", "Express.js", "FastAPI", "Python", "REST APIs"],
-  },
-  {
-    category: "Database",
-    techs: ["PostgreSQL", "MongoDB", "SQLite", "SQLAlchemy"],
-  },
-  {
-    category: "Tools & Platforms",
-    techs: ["Git", "GitHub", "Vercel", "Render", "Figma", "VS Code"],
-  },
+const skills = [
+  { name: "React", icon: Braces },
+  { name: "Next.js", icon: Globe2 },
+  { name: "TypeScript", icon: Braces },
+  { name: "Node.js", icon: Server },
+  { name: "Python", icon: TerminalSquare },
+  { name: "FastAPI", icon: Workflow },
+  { name: "PostgreSQL", icon: Database },
+  { name: "Supabase", icon: Layers3 },
+  { name: "Git & GitHub", icon: GitBranch },
 ];
 
 export default function Skills() {
   return (
-    <SectionWrapper id="skills" className="bg-white/[0.01]">
+    <SectionWrapper id="skills" className="bg-[#0d0d0d]">
       <SectionHeading
-        label="Tech Stack"
-        title="What I Work With"
-        subtitle="Technologies I use to build fast, scalable, and modern applications."
+        label="Skills"
+        title="Tools I Build With"
+        subtitle="A focused engineering stack for modern products, reliable systems, and polished interfaces."
       />
 
-      <div className="space-y-6">
-        {techStack.map((group, i) => (
-          <motion.div
-            key={group.category}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4, delay: i * 0.08 }}
-            className="flex flex-col sm:flex-row sm:items-start gap-3"
-          >
-            <span className="text-zinc-500 text-xs font-mono uppercase tracking-widest w-36 pt-1.5 shrink-0">
-              {group.category}
-            </span>
-            <div className="flex flex-wrap gap-2">
-              {group.techs.map((tech) => (
-                <motion.span
-                  key={tech}
-                  whileHover={{ y: -2 }}
-                  className="px-3 py-1 rounded-md glass border border-white/10 text-zinc-300 text-xs font-mono hover:text-white hover:border-white/20 transition-all duration-150 cursor-default"
-                >
-                  {tech}
-                </motion.span>
-              ))}
-            </div>
-          </motion.div>
+      <div className="grid grid-cols-3 gap-3 sm:grid-cols-4 lg:grid-cols-9">
+        {skills.map(({ name, icon: Icon }) => (
+          <div key={name} className="group flex min-h-24 flex-col items-center justify-center rounded-xl border border-white/8 bg-white/[0.02] px-2 py-4 text-center transition-colors hover:border-[#c9a24d]/35 hover:bg-white/[0.04]">
+            <Icon size={22} strokeWidth={1.6} className="text-[#b0b0aa] transition-colors group-hover:text-[#c9a24d]" />
+            <span className="mt-2 text-[10px] leading-tight text-[#8c8c88] group-hover:text-[#f5f5f2]">{name}</span>
+          </div>
         ))}
       </div>
     </SectionWrapper>
