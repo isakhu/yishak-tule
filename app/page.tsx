@@ -3,9 +3,6 @@
 import Image from "next/image";
 import {
   ArrowUpRight,
-  Code2,
-  Globe2,
-  Home as HomeIcon,
   Mail,
   MapPin,
   Moon,
@@ -13,6 +10,7 @@ import {
   UserRound,
   BriefcaseBusiness,
   Languages,
+  Home as HomeIcon,
 } from "lucide-react";
 import { useEffect, useState } from "react";
 
@@ -31,6 +29,9 @@ type Project = {
 
 const screenshot = (url: string) =>
   `https://image.thum.io/get/width/1400/crop/820/noanimate/${url}`;
+
+const brandIcon = (slug: string, color = "121212") =>
+  `https://cdn.simpleicons.org/${slug}/${color}`;
 
 const projects: Project[] = [
   {
@@ -117,22 +118,28 @@ const projects: Project[] = [
 ];
 
 const skills = [
-  "JavaScript",
-  "TypeScript",
-  "Python",
-  "Java",
-  "C++",
-  "React",
-  "Next.js",
-  "Node.js",
-  "FastAPI",
-  "Tailwind CSS",
-  "PostgreSQL",
-  "MongoDB",
-  "MySQL",
-  "Supabase",
-  "Git",
-  "Vercel",
+  { name: "JavaScript", icon: "javascript" },
+  { name: "TypeScript", icon: "typescript" },
+  { name: "Python", icon: "python" },
+  { name: "Java", icon: "openjdk" },
+  { name: "C++", icon: "cplusplus" },
+  { name: "React", icon: "react" },
+  { name: "Next.js", icon: "nextdotjs" },
+  { name: "Node.js", icon: "nodedotjs" },
+  { name: "FastAPI", icon: "fastapi" },
+  { name: "Tailwind CSS", icon: "tailwindcss" },
+  { name: "PostgreSQL", icon: "postgresql" },
+  { name: "MongoDB", icon: "mongodb" },
+  { name: "MySQL", icon: "mysql" },
+  { name: "Supabase", icon: "supabase" },
+  { name: "Git", icon: "git" },
+  { name: "Vercel", icon: "vercel" },
+];
+
+const socialLinks = [
+  { label: "GitHub", href: "https://github.com/isakhu", icon: "github" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/yishak-tule", icon: "linkedin" },
+  { label: "Telegram", href: "https://t.me/yzak_22", icon: "telegram" },
 ];
 
 const copy = {
@@ -300,7 +307,7 @@ export default function Home() {
                 <p>{project.description[language]}</p>
                 <div style={{ gridColumn: "1 / -1", display: "flex", flexWrap: "wrap", gap: "18px", marginTop: "7px" }}>
                   {project.live && <a className="text-link" href={project.live} target="_blank" rel="noopener noreferrer">{t.liveDemo} <ArrowUpRight size={14} /></a>}
-                  <a className="text-link" href={project.github} target="_blank" rel="noopener noreferrer">{t.sourceCode} <Code2 size={14} /></a>
+                  <a className="text-link" href={project.github} target="_blank" rel="noopener noreferrer">{t.sourceCode} <ArrowUpRight size={14} /></a>
                 </div>
                 <span className="stack">{project.stack}</span>
               </div>
@@ -324,7 +331,15 @@ export default function Home() {
 
       <section id="skills" className="skills-section section-wrap content-section">
         <div className="section-intro compact"><p className="eyebrow">{t.toolkit}</p><h2>{t.toolkitTitle}</h2></div>
-        <div className="skills-list">{skills.map((skill, i) => <span key={skill}><small>{String(i + 1).padStart(2, "0")}</small>{skill}</span>)}</div>
+        <div className="skills-list">
+          {skills.map((skill, i) => (
+            <span key={skill.name}>
+              <small>{String(i + 1).padStart(2, "0")}</small>
+              <img className="skill-icon" src={brandIcon(skill.icon)} alt={`${skill.name} logo`} width={22} height={22} loading="lazy" />
+              <span className="skill-name">{skill.name}</span>
+            </span>
+          ))}
+        </div>
       </section>
 
       <section id="contact" className="contact-section section-wrap">
@@ -340,10 +355,12 @@ export default function Home() {
           <span className="brand">YZAK<span>.</span></span>
           <p>{t.footer}</p>
           <div className="socials">
-            <a href="https://github.com/isakhu" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><Code2 size={18} /></a>
-            <a href="https://www.linkedin.com/in/yishak-tule" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><Globe2 size={18} /></a>
-            <a href="https://t.me/yzak_22" target="_blank" rel="noopener noreferrer" aria-label="Telegram"><BriefcaseBusiness size={18} /></a>
-            <a href="mailto:yishakhak@gmail.com" aria-label="Email"><Mail size={18} /></a>
+            {socialLinks.map((social) => (
+              <a key={social.label} href={social.href} target="_blank" rel="noopener noreferrer" aria-label={social.label} title={social.label}>
+                <img className="social-icon" src={brandIcon(social.icon, "f4f1ea")} alt="" width={17} height={17} />
+              </a>
+            ))}
+            <a href="mailto:yishakhak@gmail.com" aria-label="Email" title="Email"><Mail size={17} /></a>
           </div>
         </div>
         <div className="footer-bottom"><span>© {new Date().getFullYear()} Yishak Tule</span><span>Hawassa · Ethiopia</span></div>
