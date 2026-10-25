@@ -46,7 +46,6 @@ const projects: Project[] = [
     },
     stack: "Next.js · TypeScript · AI",
     live: "https://temar-ai.vercel.app/",
-    github: "https://github.com/isakhu/Temar-AI",
     image: screenshot("https://temar-ai.vercel.app/"),
   },
   {
@@ -57,7 +56,6 @@ const projects: Project[] = [
       am: "ቀላል እና ተግባራዊ የዲጂታል ክፍያ ልምድ ላይ ያተኮረ የFinTech ምርት ሀሳብ።",
     },
     stack: "Web · Payments · Product Design",
-    github: "https://github.com/isakhu/Negade-pay",
     image: "https://opengraph.githubassets.com/1/isakhu/Negade-pay",
   },
   {
@@ -68,7 +66,6 @@ const projects: Project[] = [
       am: "በንፁህ እና ዘመናዊ የተጠቃሚ ልምድ ዙሪያ የተሰራ የዲጂታል ምርት ሙከራ።",
     },
     stack: "Web · TypeScript · UI/UX",
-    github: "https://github.com/isakhu/Metoriya",
     image: "https://opengraph.githubassets.com/1/isakhu/Metoriya",
   },
   {
@@ -79,7 +76,6 @@ const projects: Project[] = [
       am: "በWindows ላይ ያለ ኢንተርኔት የሚሰራ የBingo አስተዳደር ሶፍትዌር፣ አውቶማቲክ ጥሪ፣ ማረጋገጫ፣ TV ማሳያ እና የጨዋታ ሂሳብን ያካትታል።",
     },
     stack: "Electron · React · TypeScript",
-    github: "https://github.com/isakhu/happy-bingo",
     image: "https://i.etsystatic.com/42134370/r/il/c6fc38/5014518999/il_fullxfull.5014518999_f5ga.jpg",
   },
   {
@@ -91,7 +87,6 @@ const projects: Project[] = [
     },
     stack: "Next.js · Supabase · TypeScript",
     live: "https://tule-resort.vercel.app/",
-    github: "https://github.com/isakhu/Tule-Resort",
     image: siteSnapshot("https://tule-resort.vercel.app/"),
   },
   {
@@ -103,7 +98,6 @@ const projects: Project[] = [
     },
     stack: "Next.js · PostgreSQL · TypeScript",
     live: "https://hawassa-tabor-school.vercel.app/",
-    github: "https://github.com/isakhu/hawassa-tabor-school",
     image: screenshot("https://hawassa-tabor-school.vercel.app/"),
   },
   {
